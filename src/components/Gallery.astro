@@ -1,0 +1,1984 @@
+---
+// Gallery Section Component — Hybrid Editorial & Cinematic Experience
+// Combining Category-Based Flow + Diverse-Sized Frames + 35mm Film Roll + Tab Hover Previews + Morph Transitions
+// Lightweight Vanilla JS (< 2.5 KB), Zero Heavy Libraries
+
+import { galleryCategories, filmstripPhotos, instagramPosts } from '../data/galleryData.js';
+
+// Initial category displayed on page load
+const initialCategory = galleryCategories.raceDay;
+---
+
+<section class="gallery-hybrid-root" id="gallery" aria-label="Official Gallery & Visual Archive">
+  
+  <div class="gallery-glow-bg" aria-hidden="true"></div>
+
+  <div class="gallery-container">
+    
+    <!-- 1. GALLERY INTRO -->
+    <header class="gallery-intro-wrap reveal-scroll" id="gallery-intro">
+      <div class="gallery-badge-line">
+        <span class="badge-num">10</span>
+        <span class="badge-sep">/</span>
+        <span class="badge-text">GALLERY</span>
+      </div>
+
+      <h2 class="gallery-headline">
+        <span class="row-1">THE MOMENTS</span>
+        <span class="row-2">THAT MOVED US</span>
+      </h2>
+
+      <p class="gallery-quote-lead">
+        <em>Every race has a story. Every photograph has a moment.</em>
+      </p>
+    </header>
+
+    <!-- 2. CATEGORY NAVIGATION WITH HOVER PREVIEW THUMBNAILS & MORPH INDICATOR -->
+    <nav class="cat-nav-wrapper" id="cat-nav" aria-label="Explore gallery categories">
+      <div class="cat-nav-track" role="tablist">
+        {Object.entries(galleryCategories).map(([key, cat]) => (
+          <button 
+            type="button"
+            class={`cat-nav-tab ${key === 'raceDay' ? 'active' : ''} ${cat.isSpecialTeaser ? 'teaser-tab' : ''}`}
+            data-cat-key={key}
+            data-cat-id={cat.id}
+            role="tab"
+            aria-selected={key === 'raceDay' ? 'true' : 'false'}
+            id={`tab-btn-${cat.id}`}
+            aria-controls="gallery-morph-stage"
+          >
+            <span class="tab-num">{cat.num}</span>
+            <span class="tab-label">{cat.navLabel}</span>
+            {cat.isSpecialTeaser && <span class="tab-pill-badge">2027</span>}
+
+            <!-- Floating Hover Preview Thumbnail Card -->
+            {!cat.isSpecialTeaser && (
+              <span class="tab-hover-card" aria-hidden="true">
+                <img src={cat.images[0].src} alt="" class="tab-preview-img" loading="lazy" />
+                <span class="tab-hover-info">
+                  <strong class="tab-hover-title">{cat.subtitle}</strong>
+                  <span class="tab-hover-count">7 Photographs &bull; {cat.year}</span>
+                </span>
+              </span>
+            )}
+          </button>
+        ))}
+      </div>
+    </nav>
+
+    <!-- 3. DYNAMIC CATEGORY MORPH STAGE (FEATURED HERO + 7 DIVERSE FRAMES) -->
+    <div id="gallery-morph-stage" class="gallery-morph-stage" role="tabpanel">
+      
+      <!-- Dominant Featured Photo Hero -->
+      <div class="featured-hero-box" id="featured-hero-box">
+        <div class="featured-header-row">
+          <div class="stream-info">
+            <span class="stream-label">CURATED STREAM &bull;</span>
+            <span class="stream-name" id="featured-cat-name">{initialCategory.subtitle}</span>
+          </div>
+          <div class="stream-index-tag" id="featured-counter">{initialCategory.counter}</div>
+        </div>
+
+        <figure 
+          class="featured-photo-frame"
+          id="featured-photo-frame"
+          data-img={initialCategory.images[0].src}
+          data-title={initialCategory.featuredCaption.title}
+          data-caption={initialCategory.featuredCaption.desc}
+          data-cat={initialCategory.subtitle}
+          data-num="01 / 07"
+          tabindex="0"
+          role="button"
+          aria-label={`Open featured photo: ${initialCategory.featuredCaption.title}`}
+        >
+          <div class="featured-image-canvas">
+            <img 
+              src={initialCategory.images[0].src} 
+              alt={initialCategory.images[0].alt}
+              class="featured-photo-img"
+              id="featured-photo-img"
+              loading="eager"
+              fetchpriority="high"
+            />
+            <div class="featured-overlay-sheen">
+              <span class="view-moment-pill">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                <span>VIEW MOMENT</span>
+              </span>
+            </div>
+          </div>
+
+          <figcaption class="featured-meta-caption">
+            <div class="featured-eyebrow">
+              <span id="featured-year-tag">{initialCategory.year}</span>
+              <span class="bullet-dot">&bull;</span>
+              <span class="highlight-badge">FEATURED PHOTOGRAPH</span>
+            </div>
+            <h3 class="featured-photo-title" id="featured-title">{initialCategory.featuredCaption.title}</h3>
+            <p class="featured-photo-desc" id="featured-desc">{initialCategory.featuredCaption.desc}</p>
+          </figcaption>
+        </figure>
+      </div>
+
+      <!-- 7-Photo Asymmetric Editorial Grid with Diverse Frames -->
+      <div class="editorial-frames-container">
+        <div class="frames-heading-strip">
+          <div>
+            <span class="frames-sub-kicker">SERIES SEQUENCE</span>
+            <h4 class="frames-main-title" id="frames-series-title">7 Curated Moments from {initialCategory.subtitle}</h4>
+          </div>
+          <span class="frames-guide-note">Click any frame to inspect in cinematic viewer</span>
+        </div>
+
+        <div class={`editorial-frames-grid ${initialCategory.gridVariant}`} id="editorial-frames-grid">
+          {initialCategory.images.map((photo, pIdx) => (
+            <figure 
+              class={`diverse-frame-item frame-slot-${pIdx + 1}`}
+              data-img={photo.src}
+              data-title={photo.title}
+              data-caption={photo.caption}
+              data-cat={initialCategory.subtitle}
+              data-num={`0${pIdx + 1} / 07`}
+              data-idx={pIdx}
+              tabindex="0"
+              role="button"
+              aria-label={`View moment 0${pIdx + 1}: ${photo.title}`}
+            >
+              <div class="frame-media-shell">
+                <img 
+                  src={photo.src} 
+                  alt={photo.alt}
+                  class="frame-photo-asset"
+                  loading="lazy"
+                />
+
+                <!-- Hover interaction overlay -->
+                <div class="frame-hover-layer">
+                  <div class="hover-bubble">
+                    <span class="plus-sign">+</span>
+                    <span class="hover-inspect-txt">VIEW MOMENT</span>
+                  </div>
+                  <div class="hover-meta-footer">
+                    <span class="hover-tag" set:html={photo.tag}></span>
+                    <span class="hover-title">{photo.title}</span>
+                  </div>
+                </div>
+              </div>
+
+              <figcaption class="frame-caption-bar">
+                <span class="frame-number-badge">0{pIdx + 1}</span>
+                <div class="frame-text-group">
+                  <h5 class="frame-title-text">{photo.title}</h5>
+                  <p class="frame-desc-text">{photo.caption}</p>
+                </div>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 4. FILMING ROLL / CINEMA STRIP ("MORE MOMENTS") -->
+    <div class="filmroll-experience-wrap" id="filmroll-section">
+      <div class="filmroll-header">
+        <div class="filmroll-kicker">35MM CONTINUOUS TRACK</div>
+        <h3 class="filmroll-title">MORE MOMENTS</h3>
+        <p class="filmroll-sub">Curious for more? Glide through the continuous film reel of highlights</p>
+      </div>
+
+      <!-- 35mm Filmstrip Track with Sprocket Perforations -->
+      <div class="filmroll-viewport" aria-label="Interactive 35mm film roll. Pauses on hover.">
+        <!-- Top Film Perforations -->
+        <div class="film-sprockets top" aria-hidden="true"></div>
+
+        <div class="filmroll-sliding-track">
+          {filmstripPhotos.concat(filmstripPhotos).map((item, fIdx) => (
+            <div 
+              class="film-frame-card"
+              data-img={item.src}
+              data-title={item.title}
+              data-caption={`Archival 35mm cut: ${item.title}`}
+              data-cat={item.cat}
+              data-num={`REEL ${(fIdx % filmstripPhotos.length) + 1}`}
+              tabindex="0"
+              role="button"
+              aria-label={`Open film frame: ${item.title}`}
+            >
+              <div class="film-frame-inner">
+                <img src={item.src} alt={item.title} class="film-frame-img" loading="lazy" />
+                <div class="film-frame-overlay">
+                  <span class="film-tc">00:05:{(fIdx * 4) % 60 < 10 ? '0' : ''}{(fIdx * 4) % 60}</span>
+                  <span class="film-cat-badge">{item.cat}</span>
+                  <span class="film-title-badge">{item.title}</span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <!-- Bottom Film Perforations -->
+        <div class="film-sprockets bottom" aria-hidden="true"></div>
+      </div>
+    </div>
+
+    <!-- 5. INSTAGRAM PREVIEW SECTION -->
+    <div class="instagram-wrap" id="instagram-section">
+      <div class="ig-header-bar">
+        <div class="ig-profile-group">
+          <div class="ig-gradient-logo" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+          </div>
+          <div>
+            <h3 class="ig-title">MORE FROM XAVATHON</h3>
+            <p class="ig-subtitle">Follow the moments beyond the finish line.</p>
+          </div>
+        </div>
+
+        <div class="ig-action-bar">
+          <span class="ig-handle-txt">@XAVATHON</span>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="ig-btn">
+            <span>FOLLOW ON INSTAGRAM</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="ig-cards-grid">
+        {instagramPosts.map((post) => (
+          <article class="ig-card">
+            <div class="ig-card-top">
+              <div class="ig-user">
+                <img src="/sxc-logo.webp" alt="SXC Logo" class="ig-avatar" loading="lazy" width="26" height="26" />
+                <span class="ig-name">xavathon.sxc</span>
+              </div>
+              <span class="ig-blue-check">✓</span>
+            </div>
+
+            <div class="ig-media-box">
+              <img src={post.img} alt="Instagram Moment" class="ig-photo" loading="lazy" />
+            </div>
+
+            <div class="ig-card-body">
+              <div class="ig-likes"><strong>{post.likes}</strong> likes</div>
+              <p class="ig-caption">{post.caption}</p>
+              <span class="ig-date">{post.date}</span>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+
+    <!-- 6. XAVATHON 2027 COMING SOON TEASER -->
+    <div class="teaser-wrap" id="cat-coming-soon">
+      <div class="teaser-card">
+        <div class="teaser-bg" style="background-image: url('/website-cover.webp');" aria-hidden="true"></div>
+        <div class="teaser-watermark" aria-hidden="true">2027</div>
+
+        <div class="teaser-content">
+          <div class="teaser-badges">
+            <span class="teaser-kicker">NEXT CHAPTER</span>
+            <span class="teaser-date-badge">JANUARY 24, 2027</span>
+          </div>
+
+          <h3 class="teaser-title">
+            XAVATHON 2027<br />
+            <span class="teaser-highlight">COMING SOON</span>
+          </h3>
+
+          <p class="teaser-desc">
+            The next chapter starts here. St. Xavier's College is expanding the green corridor, introducing recycled ocean-yarn jerseys, and planting one tree for every single runner.
+          </p>
+
+          <div class="teaser-cta">
+            <a href="#about" class="teaser-btn">
+              <span>EXPLORE 2027 EDITION</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+            <span class="teaser-hint">Registration portal opens December 2026</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 7. FULLSCREEN LIGHTBOX VIEWER -->
+  <dialog id="photo-dialog" class="photo-lightbox-modal" aria-label="Fullscreen photo viewer">
+    <div class="dialog-inner-wrap">
+      
+      <!-- Top Bar -->
+      <div class="dialog-top">
+        <div class="dialog-meta">
+          <span class="dialog-cat" id="dialog-cat">RACE DAY</span>
+          <span class="dialog-slash">/</span>
+          <span class="dialog-counter" id="dialog-counter">01 / 07</span>
+        </div>
+
+        <button type="button" class="dialog-close" id="dialog-close-btn" aria-label="Close viewer (ESC)">
+          <span class="esc-badge">ESC</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+
+      <!-- Stage with Arrows -->
+      <div class="dialog-stage">
+        <button type="button" class="dialog-arrow prev" id="dialog-prev-btn" aria-label="Previous photograph">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+
+        <div class="dialog-img-canvas">
+          <img id="dialog-img-el" src="" alt="" class="dialog-photo" />
+        </div>
+
+        <button type="button" class="dialog-arrow next" id="dialog-next-btn" aria-label="Next photograph">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+      </div>
+
+      <!-- Caption Footer -->
+      <div class="dialog-caption-foot">
+        <h4 class="dialog-title" id="dialog-title"></h4>
+        <p class="dialog-desc" id="dialog-caption"></p>
+      </div>
+
+    </div>
+  </dialog>
+
+  <!-- JSON Payload for Seamless Client Morphing -->
+  <script id="gallery-categories-data" type="application/json" set:html={JSON.stringify(galleryCategories)}></script>
+
+</section>
+
+<style>
+/* ══════════════════════════════════════════════════════════════
+   HYBRID EDITORIAL GALLERY STYLES
+   Diverse Frames • Tab Hover Previews • Morph Transitions • 35mm Reel
+   ══════════════════════════════════════════════════════════════ */
+
+.gallery-hybrid-root {
+  position: relative;
+  background-color: var(--warm-white, #faf7f1);
+  color: var(--ink, #20262a);
+  padding: 4.5rem 0 6rem;
+  overflow: hidden;
+}
+
+.gallery-glow-bg {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1380px;
+  height: 520px;
+  background: radial-gradient(circle at 50% 12%, rgba(16, 185, 129, 0.08) 0%, rgba(212, 163, 89, 0.04) 45%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.gallery-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ── 1. INTRO ── */
+.gallery-intro-wrap {
+  margin-bottom: 2.75rem;
+}
+
+.gallery-badge-line {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-heading, 'Outfit', sans-serif);
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--forest, #18364a);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.badge-num {
+  color: var(--gold-warm, #d4a359);
+}
+
+.badge-sep {
+  opacity: 0.4;
+}
+
+.gallery-headline {
+  font-family: var(--font-display, 'Bebas Neue', sans-serif);
+  font-size: clamp(3.2rem, 7.5vw, 6.2rem);
+  line-height: 0.92;
+  letter-spacing: 0.02em;
+  color: var(--midnight, #0b1d2a);
+  margin: 0 0 1.5rem;
+  text-transform: uppercase;
+}
+
+.row-1 {
+  display: block;
+  color: var(--midnight, #0b1d2a);
+}
+
+.row-2 {
+  display: block;
+  color: var(--leaf, #6f5745);
+}
+
+.gallery-quote-lead {
+  font-family: var(--font-serif, 'Newsreader', Georgia, serif);
+  font-size: clamp(1.2rem, 2.2vw, 1.65rem);
+  line-height: 1.45;
+  color: var(--forest, #18364a);
+  max-width: 680px;
+  margin: 0;
+  border-left: 3px solid var(--gold-warm, #d4a359);
+  padding-left: 1.25rem;
+}
+
+/* ── 2. CATEGORY NAVIGATION & HOVER PREVIEW THUMBNAILS ── */
+.cat-nav-wrapper {
+  position: sticky;
+  top: 72px;
+  z-index: 50;
+  background: rgba(250, 247, 241, 0.95);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-top: 1px solid rgba(24, 54, 74, 0.12);
+  border-bottom: 1px solid rgba(24, 54, 74, 0.12);
+  padding: 0.4rem 0;
+  margin: 0 -1.5rem 3.5rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.cat-nav-track {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding: 0.35rem 0;
+}
+
+.cat-nav-track::-webkit-scrollbar {
+  display: none;
+}
+
+.cat-nav-tab {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.7rem 1.2rem;
+  border-radius: 999px;
+  font-family: var(--font-heading, 'Outfit', sans-serif);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--slate-600, #5c6870);
+  background: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  outline: none;
+}
+
+.cat-nav-tab:hover {
+  color: var(--midnight, #0b1d2a);
+  background: rgba(24, 54, 74, 0.05);
+}
+
+.cat-nav-tab.active {
+  background: var(--midnight, #0b1d2a);
+  color: #ffffff;
+  border-color: var(--midnight, #0b1d2a);
+  box-shadow: 0 6px 18px rgba(11, 29, 42, 0.16);
+}
+
+.cat-nav-tab.active .tab-num {
+  color: var(--gold-warm, #d4a359);
+}
+
+.tab-num {
+  font-size: 0.72rem;
+  opacity: 0.65;
+  color: var(--gold-warm, #d4a359);
+}
+
+.cat-nav-tab.teaser-tab {
+  border-color: rgba(16, 185, 129, 0.35);
+  color: var(--green-900, #064e3b);
+}
+
+.cat-nav-tab.teaser-tab:hover {
+  background: rgba(16, 185, 129, 0.08);
+  border-color: rgba(16, 185, 129, 0.7);
+}
+
+.tab-pill-badge {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: #ffffff;
+  font-size: 0.62rem;
+  font-weight: 800;
+  padding: 0.15rem 0.45rem;
+  border-radius: 999px;
+  letter-spacing: 0.06em;
+}
+
+/* Floating Hover Preview Card */
+.tab-hover-card {
+  position: absolute;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%) translateY(8px) scale(0.92);
+  width: 190px;
+  background: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 14px 34px rgba(11, 29, 42, 0.2);
+  border: 1px solid rgba(24, 54, 74, 0.12);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: all 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+}
+
+.tab-hover-card::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: #ffffff transparent transparent transparent;
+}
+
+.cat-nav-tab:hover .tab-hover-card {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0) scale(1);
+}
+
+.tab-preview-img {
+  width: 100%;
+  height: 95px;
+  object-fit: cover;
+  display: block;
+}
+
+.tab-hover-info {
+  padding: 0.55rem 0.65rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  text-align: left;
+}
+
+.tab-hover-title {
+  font-family: var(--font-heading, 'Outfit', sans-serif);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--midnight, #0b1d2a);
+}
+
+.tab-hover-count {
+  font-size: 0.65rem;
+  color: var(--slate-600, #5c6870);
+}
+
+/* ── 3. DYNAMIC MORPH STAGE ── */
+.gallery-morph-stage {
+  transition: opacity 0.32s cubic-bezier(0.16, 1, 0.3, 1), transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), filter 0.32s ease;
+  will-change: opacity, transform, filter;
+}
+
+.gallery-morph-stage.is-morphing {
+  opacity: 0;
+  transform: scale(0.985) translateY(10px);
+  filter: blur(4px);
+}
+
+/* Featured Hero Section */
+.featured-hero-box {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 1.75rem;
+  border: 1px solid rgba(24, 54, 74, 0.08);
+  box-shadow: 0 10px 30px rgba(11, 29, 42, 0.04);
+  margin-bottom: 4.5rem;
+}
+
+.featured-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid rgba(24, 54, 74, 0.08);
+}
+
+.stream-info {
+  font-family: var(--font-heading, 'Outfit', sans-serif);
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  font-weight: 700;
+}
+
+.stream-label {
+  color: var(--gold-warm, #d4a359);
+}
+
+.stream-name {
+  color: var(--midnight, #0b1d2a);
+  margin-left: 0.3rem;
+}
+
+.stream-index-tag {
+  font-family: var(--font-heading, 'Outfit', sans-serif);
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--slate-600, #5c6870);
+}
+
+.featured-photo-frame {
+  display: grid;
+  grid-template-columns: 1.85fr 1fr;
+  gap: 2.25rem;
+  align-items: center;
+  cursor: pointer;
+  margin: 0;
+  outline: none;
+}
+
+.featured-photo-frame:focus-visible .featured-image-canvas {
+  outline: 3px solid var(--gold-warm, #d4a359);
+  outline-offset: 3px;
+}
+
+.featured-image-canvas {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #0b1d2a;
+  aspect-ratio: 16 / 10;
+}
+
+.featured-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: subtleKenBurns 24s ease-in-out infinite alternate;
+}
+
+@keyframes subtleKenBurns {
+  0% { transform: scale(1.0); }
+  50% { transform: scale(1.05) translate(-0.6%, -0.4%); }
+  100% { transform: scale(1.01) translate(0.4%, 0.6%); }
+}
+
+.featured-photo-frame:hover .featured-photo-img {
+  transform: scale(1.06);
+}
+
+.featured-overlay-sheen {
+  position: absolute;
+  inset: 0;
+  background: rgba(11, 29, 42, 0.38);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.view-moment-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(7, 11, 18, 0.88);
+  color: #ffffff;
+  padding: 0.65rem 1.25rem;
+  border-radius: 999px;
+  font-family: var(--font-heading, 'Outfit', sans-serif);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transform: translateY(6px);
+  transition: transform 0.3s cubic-bezier(0.2, 0, 0, 1);
+}
+
+.featured-photo-frame:hover .featured-overlay-sheen {
+  opacity: 1;
+}
+
+.featured-photo-frame:hover .view-moment-pill {
+  transform: translateY(0);
+}
+
+.featured-meta-caption {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.featured-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-heading, 'Outfit', sans-serif);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--slate-600, #5c6870);
+  margin-bottom: 0.85rem;
+}
+
+.highlight-badge {
+  color: var(--gold-warm, #d4a359);
+}
+
+.featured-photo-title {
+  font-family: var(--font-display, 'Bebas Neue', sans-serif);
+  font-size: clamp(2.4rem, 4.2vw, 3.6rem);
+  line-height: 0.96;
+  letter-spacing: 0.03em;
+  color: var(--midnight, #0b1d2a);
+  margin: 0 0 0.85rem;
+  text-transform: uppercase;
+}
+
+.featured-photo-desc {
+  font-family: var(--font-serif, 'Newsreader', Georgia, serif);
+  font-size: 1.15rem;
+  line-height: 1.55;
+  color: var(--forest, #18364a);
+  margin: 0;
+}
+
+/* ── ASYMMETRIC DIVERSE-FRAME EDITORIAL GRID ── */
+.editorial-frames-container {
+  margin-bottom: 5.5rem;
+}
+
+.frames-heading-strip {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 1.75rem;
+  border-bottom: 1px solid rgba(24, 54, 74, 0.1);
+  padding-bottom: 0.85rem;
+}
+
+.frames-sub-kicker {
+  display: block;
+  font-family: var(--font-heading, 'Outfit', sans-serif);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--gold-warm, #d4a359);
+  margin-bottom: 0.25rem;
+}
+
+.frames-main-title {
+  font-family: var(--font-display, 'Bebas Neue', sans-serif);
+  font-size: 1.8rem;
+  letter-spacing: 0.04em;
+  color: var(--midnight, #0b1d2a);
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.frames-guide-note {
+  font-size: 0.8rem;
+  color: var(--slate-600, #5c6870);
+  font-family: var(--font-heading, 'Outfit', sans-serif);
+}
+
+/* CSS Grid with Asymmetric Spans & Varied Frame Proportions */
+.editorial-frames-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1.5rem;
+}
+
+/* Diverse Composition Variants */
+.editorial-frames-grid.variant-a .frame-slot-1 { grid-column: span 12; }
+.editorial-frames-grid.variant-a .frame-slot-2 { grid-column: span 6; }
+.editorial-frames-grid.variant-a .frame-slot-3 { grid-column: span 6; }
+.editorial-frames-grid.variant-a .frame-slot-4 { grid-column: span 7; }
+.editorial-frames-grid.variant-a .frame-slot-5 { grid-column: span 5; }
+.editorial-frames-grid.variant-a .frame-slot-6 { grid-column: span 5; }
+.editorial-frames-grid.variant-a .frame-slot-7 { grid-column: span 7; }
+
+.editorial-frames-grid.variant-b .frame-slot-1 { grid-column: span 7; }
+.editorial-frames-grid.variant-b .frame-slot-2 { grid-column: span 5; }
+.editorial-frames-grid.variant-b .frame-slot-3 { grid-column: span 5; }
+.editorial-frames-grid.variant-b .frame-slot-4 { grid-column: span 7; }
+.editorial-frames-grid.variant-b .frame-slot-5 { grid-column: span 12; }
+.editorial-frames-grid.variant-b .frame-slot-6 { grid-column: span 6; }
+.editorial-frames-grid.variant-b .frame-slot-7 { grid-column: span 6; }
+
+.editorial-frames-grid.variant-c .frame-slot-1 { grid-column: span 6; }
+.editorial-frames-grid.variant-c .frame-slot-2 { grid-column: span 6; }
+.editorial-frames-grid.variant-c .frame-slot-3 { grid-column: span 8; }
+.editorial-frames-grid.variant-c .frame-slot-4 { grid-column: span 4; }
+.editorial-frames-grid.variant-c .frame-slot-5 { grid-column: span 4; }
+.editorial-frames-grid.variant-c .frame-slot-6 { grid-column: span 8; }
+.editorial-frames-grid.variant-c .frame-slot-7 { grid-column: span 12; }
+
+/* Individual Diverse Frame Item */
+.diverse-frame-item {
+  margin: 0;
+  background: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(24, 54, 74, 0.08);
+  box-shadow: 0 4px 16px rgba(11, 29, 42, 0.03);
+  cursor: pointer;
+  outline: none;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.diverse-frame-item:hover {
+  border-color: rgba(24, 54, 74, 0.25);
+  box-shadow: 0 12px 28px rgba(11, 29, 42, 0.08);
+}
+
+.diverse-frame-item:focus-visible {
+  outline: 3px solid var(--gold-warm, #d4a359);
+  outline-offset: 3px;
+}
+
+.frame-media-shell {
+  position: relative;
+  overflow: hidden;
+  background: #0b1d2a;
+  aspect-ratio: 16 / 10;
+  width: 100%;
+}
+
+.frame-slot-1.variant-a .frame-media-shell,
+.frame-slot-5.variant-b .frame-media-shell,
+.frame-slot-7.variant-c .frame-media-shell {
+  aspect-ratio: 21 / 9;
+}
+
+.frame-photo-asset {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1);
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.diverse-frame-item:hover .frame-photo-asset {
+  transform: scale(1.05);
+}
+
+/* Hover Interaction Overlay */
+.frame-hover-layer {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(7, 11, 18, 0.9) 0%, rgba(11, 29, 42, 0.6) 60%, rgba(11, 29, 42, 0.3) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.25rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.diverse-frame-item:hover .frame-hover-layer {
+  opacity: 1;
+}
+
+.hover-bubble {
+  align-self: center;
+  margin-top: auto;
+  margin-bottom: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  color: #ffffff;
+  transform: translateY(8px);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.diverse-frame-item:hover .hover-bubble {
+  transform: translateY(0);
+}
+
+.plus-sign {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+  line-height: 1;
+}
+
+.hover-inspect-txt {
+  font-family: var(--font-heading, 'Outfit', sans-serif);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.hover-meta-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  color: #ffffff;
+}
+
+.hover-tag {
+  font-size: 0.65rem;
+  font-family: var(--font-heading, 'Outfit', sans-serif);
+  color: var(--gold-warm, #d4a359);
+  letter-spacing: 0.1em;
+}
+
+.hover-title {
+  font-family: var(--font-display, 'Bebas Neue', sans-serif);
+  font-size: 1.35rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.frame-caption-bar {
+  padding: 1rem 1.15rem;
+  background: #ffffff;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+}
+
+.frame-number-badge {
+  font-family: var(--font-heading, 'Outfit', sans-serif);
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--gold-warm, #d4a359);
+  padding-top: 0.15rem;
+}
+
+.frame-title-text {
+  font-family: var(--font-heading, 'Outfit', sans-serif);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--midnight, #0b1d2a);
+  margin: 0 0 0.2rem;
+}
+
+.frame-desc-text {
+  font-size: 0.82rem;
+  line-height: 1.4;
+  color: var(--slate-600, #5c6870);
+  margin: 0;
+}
+
+/* ── 4. 35MM FILMING ROLL REEL EXPERIENCE ── */
+.filmroll-experience-wrap {
+  margin: 6rem 0 5.5rem;
+  padding: 3.5rem 0 3rem;
+  background: #070d13;
+  border-radius: 16px;
+  color: #ffffff;
+  overflow: hidden;
+  box-shadow: 0 18px 45px rgba(7, 13, 19, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.filmroll-header {
+  text-align: center;
+  margin-bottom: 2.25rem;
+  padding: 0 1.5rem;
+}
+
+.filmroll-kicker {
+  display: inline-block;
+  font-family: var(--font-heading, 'Outfit', sans-serif);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--gold-warm, #d4a359);
+  margin-bottom: 0.35rem;
+}
+
+.filmroll-title {
+  font-family: var(--font-display, 'Bebas Neue', sans-serif);
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  letter-spacing: 0.04em;
+  color: #ffffff;
+  margin: 0 0 0.4rem;
+  text-transform: uppercase;
+}
+
+.filmroll-sub {
+  font-family: var(--font-serif, 'Newsreader', Georgia, serif);
+  font-size: 1.05rem;
+  color: var(--sage, #cbbdad);
+  margin: 0 auto;
+}
+
+.filmroll-viewport {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 1.5rem 0;
+  background: #05090e;
+}
+
+/* Realistic 35mm Sprocket Perforations */
+.film-sprockets {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 14px;
+  background-image: radial-gradient(#05090e 35%, transparent 40%),
+                    repeating-linear-gradient(90deg, #1f2937, #1f2937 12px, transparent 12px, transparent 24px);
+  background-size: 24px 14px;
+  opacity: 0.8;
+  z-index: 2;
+}
+
+.film-sprockets.top { top: 0; }
+.film-sprockets.bottom { bottom: 0; }
+
+.filmroll-sliding-track {
+  display: flex;
+  gap: 1.25rem;
+  width: max-content;
+  animation: filmrollMarquee 46s linear infinite;
+  padding: 0 1rem;
+}
+
+.filmroll-sliding-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes filmrollMarquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.film-frame-card {
+  width: 290px;
+  flex-shrink: 0;
+  background: #111822;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  cursor: pointer;
+  outline: none;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.film-frame-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  border-color: var(--gold-warm, #d4a359);
+}
+
+.film-frame-card:focus-visible {
+  outline: 2px solid var(--gold-warm, #d4a359);
+}
+
+.film-frame-inner {
+  position: relative;
+  width: 100%;
+  height: 185px;
+  overflow: hidden;
+}
+
+.film-frame-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.film-frame-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(5, 9, 14, 0.95) 0%, rgba(5, 9, 14, 0.3) 60%, rgba(5, 9, 14, 0.1) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0.75rem 0.9rem;
+}
+
+.film-tc {
+  position: absolute;
+  top: 0.65rem;
+  left: 0.85rem;
+  font-family: monospace;
+  font-size: 0.65rem;
+  color: var(--gold-warm, #d4a359);
+  letter-spacing: 0.1em;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 0.15rem 0.4rem;
+  border-radius: 3px;
+}
+
+.film-cat-badge {
+  font-family: var(--font-heading, 'Outfit', sans-serif);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--gold-warm, #d4a359);
+  margin-bottom: 0.15rem;
+}
+
+.film-title-badge {
+  font-family: var(--font-heading, 'Outfit', sans-serif);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #ffffff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── 5. INSTAGRAM SECTION ── */
+.instagram-wrap {
+  margin-bottom: 5.5rem;
+  padding: 3rem;
+  background: #ffffff;
+  border-radius: 14px;
+  border: 1px solid rgba(24, 54, 74, 0.08);
+  box-shadow: 0 8px 28px rgba(11, 29, 42, 0.04);
+}
+
+.ig-header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid rgba(24, 54, 74, 0.1);
+  padding-bottom: 1.5rem;
+}
+
+.ig-profile-group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.ig-gradient-logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #f58529 0%, #dd2a7b 50%, #8134af 100%);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ig-title {
+  font-family: var(--font-display, 'Bebas Neue', sans-serif);
+  font-size: 2.1rem;
+  letter-spacing: 0.03em;
+  color: var(--midnight, #0b1d2a);
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.ig-subtitle {
+  font-family: var(--font-serif, 'Newsreader', Georgia, serif);
+  font-size: 1.05rem;
+  color: var(--forest, #18364a);
+  margin: 0.2rem 0 0;
+}
+
+.ig-action-bar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.ig-handle-txt {
+  font-family: var(--font-heading, 'Outfit', sans-serif);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--slate-600, #5c6870);
+}
+
+.ig-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--midnight, #0b1d2a);
+  color: #ffffff;
+  font-family: var(--font-heading, 'Outfit', sans-serif);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  padding: 0.75rem 1.35rem;
+  border-radius: 999px;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.ig-btn:hover {
+  background: var(--forest, #18364a);
+  transform: translateY(-2px);
+}
+
+.ig-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.ig-card {
+  background: #faf7f1;
+  border-radius: 10px;
+  border: 1px solid rgba(24, 54, 74, 0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.ig-card-top {
+  padding: 0.75rem 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ig-user {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.ig-avatar {
+  border-radius: 50%;
+  border: 1px solid var(--gold-warm, #d4a359);
+}
+
+.ig-name {
+  font-family: var(--font-heading, 'Outfit', sans-serif);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--midnight, #0b1d2a);
+}
+
+.ig-blue-check {
+  color: #0284c7;
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.ig-media-box {
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: #0b1d2a;
+}
+
+.ig-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.ig-card:hover .ig-photo {
+  transform: scale(1.04);
+}
+
+.ig-card-body {
+  padding: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  flex-grow: 1;
+}
+
+.ig-likes {
+  font-size: 0.78rem;
+  color: var(--midnight, #0b1d2a);
+}
+
+.ig-caption {
+  font-size: 0.75rem;
+  line-height: 1.4;
+  color: var(--forest, #18364a);
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.ig-date {
+  font-size: 0.65rem;
+  font-family: var(--font-heading, 'Outfit', sans-serif);
+  color: var(--slate-400, #8f9ca6);
+  margin-top: auto;
+}
+
+/* ── 6. COMING SOON TEASER ── */
+.teaser-wrap {
+  scroll-margin-top: 140px;
+}
+
+.teaser-card {
+  position: relative;
+  min-height: 480px;
+  display: flex;
+  align-items: center;
+  padding: 4.5rem 4rem;
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--midnight, #0b1d2a);
+  box-shadow: 0 20px 50px rgba(11, 29, 42, 0.16);
+}
+
+.teaser-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(100%) blur(4px) brightness(0.38);
+  transform: scale(1.02);
+  transition: filter 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.teaser-card:hover .teaser-bg {
+  filter: grayscale(40%) blur(1px) brightness(0.48);
+  transform: scale(1.06);
+}
+
+.teaser-watermark {
+  position: absolute;
+  right: -2%;
+  bottom: -15%;
+  font-family: var(--font-display, 'Bebas Neue', sans-serif);
+  font-size: clamp(10rem, 24vw, 24rem);
+  line-height: 0.8;
+  color: rgba(255, 255, 255, 0.04);
+  user-select: none;
+  pointer-events: none;
+}
+
+.teaser-content {
+  position: relative;
+  z-index: 2;
+  max-width: 680px;
+  color: #ffffff;
+}
+
+.teaser-badges {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 1.25rem;
+}
+
+.teaser-kicker {
+  font-family: var(--font-heading, 'Outfit', sans-serif);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--gold-warm, #d4a359);
+}
+
+.teaser-date-badge {
+  background: rgba(16, 185, 129, 0.2);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  font-family: var(--font-heading, 'Outfit', sans-serif);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.2rem 0.65rem;
+  border-radius: 999px;
+  letter-spacing: 0.08em;
+}
+
+.teaser-title {
+  font-family: var(--font-display, 'Bebas Neue', sans-serif);
+  font-size: clamp(3.2rem, 7vw, 5.5rem);
+  line-height: 0.94;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+  margin: 0 0 1.25rem;
+  text-transform: uppercase;
+}
+
+.teaser-highlight {
+  color: #34d399;
+}
+
+.teaser-desc {
+  font-family: var(--font-serif, 'Newsreader', Georgia, serif);
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  line-height: 1.55;
+  color: var(--sage, #cbbdad);
+  margin: 0 0 2rem;
+}
+
+.teaser-cta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.teaser-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: #ffffff;
+  font-family: var(--font-heading, 'Outfit', sans-serif);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  padding: 0.95rem 1.85rem;
+  border-radius: 999px;
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.teaser-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(16, 185, 129, 0.45);
+}
+
+.teaser-hint {
+  font-size: 0.8rem;
+  color: var(--slate-400, #8f9ca6);
+  font-family: var(--font-heading, 'Outfit', sans-serif);
+}
+
+/* ── 7. FULLSCREEN LIGHTBOX MODAL ── */
+.photo-lightbox-modal {
+  border: none;
+  padding: 0;
+  background: transparent;
+  max-width: 100vw;
+  max-height: 100vh;
+  width: 100%;
+  height: 100%;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.photo-lightbox-modal::backdrop {
+  background: rgba(7, 11, 18, 0.96);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.dialog-inner-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  padding: 1.25rem 2rem;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.dialog-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dialog-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-family: var(--font-heading, 'Outfit', sans-serif);
+  font-size: 0.82rem;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+}
+
+.dialog-cat {
+  color: var(--gold-warm, #d4a359);
+}
+
+.dialog-slash {
+  opacity: 0.4;
+}
+
+.dialog-close {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  padding: 0.45rem 0.95rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  font-family: var(--font-heading, 'Outfit', sans-serif);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.dialog-close:hover {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.esc-badge {
+  font-size: 0.68rem;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+}
+
+.dialog-stage {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-grow: 1;
+  max-height: calc(100vh - 180px);
+}
+
+.dialog-arrow {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.dialog-arrow:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.08);
+}
+
+.dialog-img-canvas {
+  flex-grow: 1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dialog-photo {
+  max-width: 100%;
+  max-height: 68vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 16px 50px rgba(0, 0, 0, 0.6);
+}
+
+.dialog-caption-foot {
+  text-align: center;
+  padding-top: 1rem;
+}
+
+.dialog-title {
+  font-family: var(--font-display, 'Bebas Neue', sans-serif);
+  font-size: 2rem;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+  margin: 0 0 0.2rem;
+  text-transform: uppercase;
+}
+
+.dialog-desc {
+  font-family: var(--font-serif, 'Newsreader', Georgia, serif);
+  font-size: 1.05rem;
+  color: var(--sage, #cbbdad);
+  margin: 0;
+}
+
+/* ── RESPONSIVE ADAPTATIONS ── */
+@media (max-width: 1024px) {
+  .featured-photo-frame {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .ig-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .teaser-card {
+    padding: 3rem 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery-hybrid-root {
+    padding: 3.5rem 0 4.5rem;
+  }
+
+  .editorial-frames-grid.variant-a,
+  .editorial-frames-grid.variant-b,
+  .editorial-frames-grid.variant-c {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .editorial-frames-grid .diverse-frame-item {
+    grid-column: span 1 !important;
+  }
+
+  .frame-slot-1.variant-a .frame-media-shell,
+  .frame-slot-5.variant-b .frame-media-shell,
+  .frame-slot-7.variant-c .frame-media-shell {
+    aspect-ratio: 16 / 10;
+  }
+
+  .tab-hover-card {
+    display: none !important;
+  }
+
+  .ig-cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .instagram-wrap {
+    padding: 1.75rem;
+  }
+
+  .dialog-inner-wrap {
+    padding: 1rem 0.75rem;
+  }
+
+  .dialog-arrow {
+    width: 42px;
+    height: 42px;
+  }
+
+  .dialog-stage {
+    gap: 0.5rem;
+  }
+}
+
+/* Reduced Motion Optimization */
+@media (prefers-reduced-motion: reduce) {
+  .featured-photo-img {
+    animation: none !important;
+  }
+
+  .filmroll-sliding-track {
+    animation: none !important;
+    overflow-x: auto;
+  }
+
+  .frame-photo-asset,
+  .teaser-bg {
+    transition: none !important;
+  }
+}
+</style>
+
+<!-- Ultra-Lightweight Vanilla JS Controller (< 2 KB) for Morphing & Dialog -->
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    // 1. Data & DOM Elements
+    const dataTag = document.getElementById('gallery-categories-data');
+    if (!dataTag) return;
+    const categories = JSON.parse(dataTag.textContent);
+
+    const navTabs = document.querySelectorAll('.cat-nav-tab');
+    const morphStage = document.getElementById('gallery-morph-stage');
+
+    // Featured Hero Elements
+    const heroCatName = document.getElementById('featured-cat-name');
+    const heroCounter = document.getElementById('featured-counter');
+    const heroFrame = document.getElementById('featured-photo-frame');
+    const heroImg = document.getElementById('featured-photo-img');
+    const heroYear = document.getElementById('featured-year-tag');
+    const heroTitle = document.getElementById('featured-title');
+    const heroDesc = document.getElementById('featured-desc');
+
+    // Editorial Frames Grid Elements
+    const seriesTitle = document.getElementById('frames-series-title');
+    const framesGrid = document.getElementById('editorial-frames-grid');
+
+    // Native Dialog Elements
+    const dialog = document.getElementById('photo-dialog');
+    const dialogImg = document.getElementById('dialog-img-el');
+    const dialogTitle = document.getElementById('dialog-title');
+    const dialogCaption = document.getElementById('dialog-caption');
+    const dialogCat = document.getElementById('dialog-cat');
+    const dialogCounter = document.getElementById('dialog-counter');
+    const closeBtn = document.getElementById('dialog-close-btn');
+    const prevBtn = document.getElementById('dialog-prev-btn');
+    const nextBtn = document.getElementById('dialog-next-btn');
+
+    let currentCategoryKey = 'raceDay';
+    let currentPhotoIdx = 0;
+    let activeCategoryPhotos = categories.raceDay.images;
+
+    // 2. Morph Switch Category
+    function morphToCategory(catKey) {
+      const catData = categories[catKey];
+      if (!catData) return;
+
+      if (catData.isSpecialTeaser) {
+        const teaserSection = document.getElementById('cat-coming-soon');
+        if (teaserSection) {
+          teaserSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        return;
+      }
+
+      currentCategoryKey = catKey;
+      activeCategoryPhotos = catData.images;
+
+      // Update Active Navigation Tab
+      navTabs.forEach(tab => {
+        const isCurrent = tab.getAttribute('data-cat-key') === catKey;
+        tab.classList.toggle('active', isCurrent);
+        tab.setAttribute('aria-selected', isCurrent ? 'true' : 'false');
+        if (isCurrent) {
+          tab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        }
+      });
+
+      // Trigger Morph Animation (cross-fade + subtle scale + blur)
+      morphStage.classList.add('is-morphing');
+
+      setTimeout(() => {
+        // Update Featured Lead Card
+        if (heroCatName) heroCatName.textContent = catData.subtitle;
+        if (heroCounter) heroCounter.textContent = catData.counter;
+        if (heroYear) heroYear.textContent = catData.year;
+        if (heroTitle) heroTitle.textContent = catData.featuredCaption.title;
+        if (heroDesc) heroDesc.textContent = catData.featuredCaption.desc;
+
+        if (heroImg) {
+          heroImg.src = catData.images[0].src;
+          heroImg.alt = catData.images[0].alt;
+        }
+
+        if (heroFrame) {
+          heroFrame.setAttribute('data-img', catData.images[0].src);
+          heroFrame.setAttribute('data-title', catData.featuredCaption.title);
+          heroFrame.setAttribute('data-caption', catData.featuredCaption.desc);
+          heroFrame.setAttribute('data-cat', catData.subtitle);
+          heroFrame.setAttribute('data-num', '01 / 07');
+        }
+
+        // Update Frames Series Title
+        if (seriesTitle) {
+          seriesTitle.textContent = `7 Curated Moments from ${catData.subtitle}`;
+        }
+
+        // Update Grid Layout Variant
+        framesGrid.className = `editorial-frames-grid ${catData.gridVariant}`;
+
+        // Rebuild 7 Asymmetric Editorial Frames
+        framesGrid.innerHTML = catData.images.map((photo, idx) => `
+          <figure 
+            class="diverse-frame-item frame-slot-${idx + 1}"
+            data-img="${photo.src}"
+            data-title="${photo.title}"
+            data-caption="${photo.caption}"
+            data-cat="${catData.subtitle}"
+            data-num="0${idx + 1} / 07"
+            data-idx="${idx}"
+            tabindex="0"
+            role="button"
+            aria-label="View moment 0${idx + 1}: ${photo.title}"
+          >
+            <div class="frame-media-shell">
+              <img 
+                src="${photo.src}" 
+                alt="${photo.alt}"
+                class="frame-photo-asset"
+                loading="lazy"
+              />
+              <div class="frame-hover-layer">
+                <div class="hover-bubble">
+                  <span class="plus-sign">+</span>
+                  <span class="hover-inspect-txt">VIEW MOMENT</span>
+                </div>
+                <div class="hover-meta-footer">
+                  <span class="hover-tag">${photo.tag}</span>
+                  <span class="hover-title">${photo.title}</span>
+                </div>
+              </div>
+            </div>
+            <figcaption class="frame-caption-bar">
+              <span class="frame-number-badge">0${idx + 1}</span>
+              <div class="frame-text-group">
+                <h5 class="frame-title-text">${photo.title}</h5>
+                <p class="frame-desc-text">${photo.caption}</p>
+              </div>
+            </figcaption>
+          </figure>
+        `).join('');
+
+        // Rebind click listeners on newly rendered frames
+        bindFrameListeners();
+
+        // Release morph animation
+        morphStage.classList.remove('is-morphing');
+      }, 250);
+    }
+
+    // 3. Tab Clicks
+    navTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const catKey = tab.getAttribute('data-cat-key');
+        if (catKey) morphToCategory(catKey);
+      });
+    });
+
+    // 4. Lightbox Controller using Native <dialog>
+    function openPhotoModal(idx) {
+      if (!activeCategoryPhotos || activeCategoryPhotos.length === 0) return;
+      if (idx < 0) idx = activeCategoryPhotos.length - 1;
+      if (idx >= activeCategoryPhotos.length) idx = 0;
+      currentPhotoIdx = idx;
+
+      const photo = activeCategoryPhotos[currentPhotoIdx];
+      const catData = categories[currentCategoryKey] || categories.raceDay;
+
+      if (dialogImg) {
+        dialogImg.src = photo.src;
+        dialogImg.alt = photo.title;
+      }
+      if (dialogTitle) dialogTitle.textContent = photo.title;
+      if (dialogCaption) dialogCaption.textContent = photo.caption;
+      if (dialogCat) dialogCat.textContent = catData.subtitle;
+      if (dialogCounter) dialogCounter.textContent = `0${currentPhotoIdx + 1} / 0${activeCategoryPhotos.length}`;
+
+      if (dialog) {
+        if (typeof dialog.showModal === 'function') {
+          dialog.showModal();
+        } else {
+          dialog.setAttribute('open', '');
+        }
+      }
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closePhotoModal() {
+      if (dialog) {
+        dialog.close();
+      }
+      document.body.style.overflow = '';
+      if (dialogImg) dialogImg.src = '';
+    }
+
+    if (closeBtn) closeBtn.addEventListener('click', closePhotoModal);
+    if (prevBtn) prevBtn.addEventListener('click', () => openPhotoModal(currentPhotoIdx - 1));
+    if (nextBtn) nextBtn.addEventListener('click', () => openPhotoModal(currentPhotoIdx + 1));
+
+    window.addEventListener('keydown', (e) => {
+      if (!dialog || !dialog.open) return;
+      if (e.key === 'ArrowLeft') openPhotoModal(currentPhotoIdx - 1);
+      if (e.key === 'ArrowRight') openPhotoModal(currentPhotoIdx + 1);
+    });
+
+    dialog?.addEventListener('click', (e) => {
+      if (e.target === dialog) closePhotoModal();
+    });
+
+    // 5. Bind Click Listeners to Frames
+    function bindFrameListeners() {
+      const frames = framesGrid.querySelectorAll('.diverse-frame-item');
+      frames.forEach(frame => {
+        const handler = () => {
+          const idx = parseInt(frame.getAttribute('data-idx') || '0', 10);
+          openPhotoModal(idx);
+        };
+        frame.addEventListener('click', handler);
+        frame.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            handler();
+          }
+        });
+      });
+    }
+
+    // Bind featured hero click
+    if (heroFrame) {
+      const heroHandler = () => openPhotoModal(0);
+      heroFrame.addEventListener('click', heroHandler);
+      heroFrame.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          heroHandler();
+        }
+      });
+    }
+
+    // Bind Filmroll Cards Click
+    const filmCards = document.querySelectorAll('.film-frame-card');
+    filmCards.forEach(card => {
+      card.addEventListener('click', () => {
+        const src = card.getAttribute('data-img');
+        const title = card.getAttribute('data-title');
+        const cat = card.getAttribute('data-cat');
+        const caption = card.getAttribute('data-caption');
+        const num = card.getAttribute('data-num');
+
+        if (dialogImg) {
+          dialogImg.src = src;
+          dialogImg.alt = title;
+        }
+        if (dialogTitle) dialogTitle.textContent = title;
+        if (dialogCaption) dialogCaption.textContent = caption;
+        if (dialogCat) dialogCat.textContent = cat;
+        if (dialogCounter) dialogCounter.textContent = num;
+
+        if (dialog) dialog.showModal();
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    // Initial listener binding
+    bindFrameListeners();
+  });
+</script>
