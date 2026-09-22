@@ -2295,6 +2295,14 @@ margin-top: 0.5rem;
    ══════════════════════════════════════════════════════════════ */
 
 /* Category-specific Colorful Gradient Themes */
+.cat-theme-community {
+  --cat-gradient: conic-gradient(from 0deg, #059669, #10b981, #d4a359, #0284c7, #059669);
+  --cat-glow: rgba(5, 150, 105, 0.4);
+  --cat-pill-bg: #ecfdf5;
+  --cat-pill-color: #065f46;
+  --cat-accent: #059669;
+}
+
 .cat-theme-race-day {
   --cat-gradient: conic-gradient(from 0deg, #f59e0b, #ef4444, #f97316, #eab308, #f59e0b);
   --cat-glow: rgba(245, 158, 11, 0.35);

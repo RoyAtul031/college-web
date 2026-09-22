@@ -1,77 +1,193 @@
 ---
-// XAVATHON 2026 & 2027 — Dedicated Gallery & Visual Archive Showcase
-// St. Xavier's College (Autonomous), Kolkata
+// XAVATHON 2027 - St. Xavier's College, Kolkata
+// 2nd Edition Marathon - Towards Greener Footprints
 
 const galleryItems = [
-  // 1. Xavathon 2026 — Race Day
-  { id: 1, category: 'race-day', categoryLabel: 'Race Day', title: 'Morning Flag-off at 5:45 AM', caption: 'The grand flag-off at St. Xavier’s Main Gate under the dawn sky', img: '/gallery/img-01.webp' },
-  { id: 2, category: 'race-day', categoryLabel: 'Race Day', title: 'Park Street Marathon Surge', caption: 'Thousands of runners streaming through the historic Mother Teresa Sarani boulevard', img: '/gallery/img-02.webp' },
-  { id: 3, category: 'race-day', categoryLabel: 'Race Day', title: '10K Elite Pacemakers', caption: 'Lead athletes setting an intense 3:30 min/km pace through the opening straight', img: '/gallery/img-03.webp' },
-  { id: 4, category: 'race-day', categoryLabel: 'Race Day', title: 'Hydration Station 1.5K', caption: 'Volunteers distributing compostable electrolyte cups to keep runners refreshed', img: '/gallery/img-04.webp' },
-  { id: 5, category: 'race-day', categoryLabel: 'Race Day', title: 'Midway Turnaround Mat', caption: 'High-energy competitors crossing the 5K electronic timing sensor with momentum', img: '/gallery/img-05.webp' },
-  { id: 6, category: 'race-day', categoryLabel: 'Race Day', title: 'The Final 400M Sprint', caption: 'Exhilarating last strides toward the SXC campus arch under roaring cheers', img: '/gallery/img-06.webp' },
-  { id: 7, category: 'race-day', categoryLabel: 'Race Day', title: 'Finish Line Euphoria', caption: 'A celebratory finish breaking the timing beam with hands held high', img: '/gallery/img-07.webp' },
-  { id: 8, category: 'race-day', categoryLabel: 'Race Day', title: 'Quadrangle Victory Gathering', caption: 'Proud participants collecting recovery packs on the grand college lawns', img: '/gallery/img-08.webp' },
+  // 1. Teachers & Community (8 photos)
+  {
+    id: 1,
+    category: 'community',
+    categoryLabel: 'Teachers & Community',
+    title: 'Rev. Fr. Dominic Savio, S.J. — Principal',
+    caption: 'Father Principal leading by example in official Xavathon runner attire with race medal and jacket.',
+    img: '/xavathon/ADK_5322.jpg'
+  },
+  {
+    id: 2,
+    category: 'community',
+    categoryLabel: 'Teachers & Community',
+    title: 'Jesuit Fathers & Dignitaries Flag-Off',
+    caption: 'Reverend Fathers and college leadership on the ceremonial stage holding the official marathon flag.',
+    img: '/xavathon/ADK_4874.jpg'
+  },
+  {
+    id: 3,
+    category: 'community',
+    categoryLabel: 'Teachers & Community',
+    title: 'Faculty & Organizing Leadership',
+    caption: 'Esteemed faculty members and senior organizers inaugurating the race day ceremonies on stage.',
+    img: '/xavathon/ADK_5593.jpg'
+  },
+  {
+    id: 4,
+    category: 'community',
+    categoryLabel: 'Teachers & Community',
+    title: 'Grand Organizing Committee & Volunteers',
+    caption: 'The complete faculty, student council, and organizing committee gathering on the main stage.',
+    img: '/xavathon/ADK_5615.jpg'
+  },
+  {
+    id: 5,
+    category: 'community',
+    categoryLabel: 'Teachers & Community',
+    title: 'Jesuit Fathers & Faculty Honor Lineup',
+    caption: 'Reverend Fathers and faculty mentors proudly wearing their Xavathon finisher medals.',
+    img: '/xavathon/XNJ_1110.jpg'
+  },
+  {
+    id: 6,
+    category: 'community',
+    categoryLabel: 'Teachers & Community',
+    title: 'College Assembly & Dignitaries View',
+    caption: 'Jesuit leadership and dignitaries observing the vibrant assembly from the campus podium.',
+    img: '/xavathon/XNJ_0982.jpg'
+  },
+  {
+    id: 7,
+    category: 'community',
+    categoryLabel: 'Teachers & Community',
+    title: 'Token of Appreciation Presentation',
+    caption: 'Father Principal presenting commemorative mementos to key event convenors and student leaders.',
+    img: '/xavathon/XNJ_0990.jpg'
+  },
+  {
+    id: 8,
+    category: 'community',
+    categoryLabel: 'Teachers & Community',
+    title: 'Post-Race Community Breakfast',
+    caption: 'Runners, professors, and alumni enjoying healthy post-run refreshments together on the quadrangle lawn.',
+    img: '/xavathon/ADK_5302.jpg'
+  },
 
-  // 2. Xavathon 2026 — Runners
-  { id: 9, category: 'runners', categoryLabel: 'Runners', title: 'Rhythm & Determination', caption: 'Collegiate runner maintaining a steady, powerful stride along the course', img: '/gallery/img-09.webp' },
-  { id: 10, category: 'runners', categoryLabel: 'Runners', title: 'Alumni Reunion Stride', caption: 'Class of 2019 alumni team completing the 10K together in solidarity', img: '/gallery/img-10.webp' },
-  { id: 11, category: 'runners', categoryLabel: 'Runners', title: 'Breakaway Focus', caption: 'Category frontrunner focused entirely on clocking a personal record', img: '/gallery/img-11.webp' },
-  { id: 12, category: 'runners', categoryLabel: 'Runners', title: 'First-Time 5K Joy', caption: 'Freshman students crossing their first official marathon timing strip', img: '/gallery/img-12.webp' },
-  { id: 13, category: 'runners', categoryLabel: 'Runners', title: 'Masters Division Pacer', caption: 'Inspiring veteran competitor demonstrating remarkable endurance and form', img: '/gallery/img-13.webp' },
-  { id: 14, category: 'runners', categoryLabel: 'Runners', title: 'Youth Energy', caption: 'Energetic group of undergraduate racers powering through kilometre 7', img: '/gallery/img-14.webp' },
-  { id: 15, category: 'runners', categoryLabel: 'Runners', title: 'Encouraging Each Other', caption: 'Runners motivating fellow participants on the final uphill stretch', img: '/gallery/img-15.webp' },
-  { id: 16, category: 'runners', categoryLabel: 'Runners', title: 'Finisher Pride', caption: 'Athletes proudly posing with their official commemorative medals', img: '/gallery/img-16.webp' },
+  // 2. Race Day & Flag-Off (4 photos)
+  {
+    id: 9,
+    category: 'race-day',
+    categoryLabel: 'Race Day & Flag-Off',
+    title: 'Pre-Dawn Start Line Arch',
+    caption: 'The iconic Xavathon starting gantry on Park Street illuminated in green and blue before daybreak.',
+    img: '/xavathon/XNJ_9596.jpg'
+  },
+  {
+    id: 10,
+    category: 'race-day',
+    categoryLabel: 'Race Day & Flag-Off',
+    title: 'Official Race Flag-Off',
+    caption: 'The electrifying moment the starting horn sounds and flags wave to launch the marathon.',
+    img: '/xavathon/XNJ_0310.jpg'
+  },
+  {
+    id: 11,
+    category: 'race-day',
+    categoryLabel: 'Race Day & Flag-Off',
+    title: 'The Starting Surge',
+    caption: 'Thousands of high-spirited runners surging past the start gantry onto the marathon course.',
+    img: '/xavathon/XNJ_0327.jpg'
+  },
+  {
+    id: 12,
+    category: 'race-day',
+    categoryLabel: 'Race Day & Flag-Off',
+    title: 'Along the Historic Kolkata Route',
+    caption: 'Participants running through the morning city corridor with dedicated police escort and green coverage.',
+    img: '/xavathon/ADK_5081.jpg'
+  },
 
-  // 3. Xavathon 2026 — Volunteers
-  { id: 17, category: 'volunteers', categoryLabel: 'Volunteers', title: 'Dawn Marshal Briefing', caption: 'Student council volunteers assembling at 4:30 AM for sector assignments', img: '/gallery/img-17.webp' },
-  { id: 18, category: 'volunteers', categoryLabel: 'Volunteers', title: 'Zero-Waste Water Squad', caption: 'Volunteer marshals serving fresh water in 100% biodegradable bagasse cups', img: '/gallery/img-18.webp' },
-  { id: 19, category: 'volunteers', categoryLabel: 'Volunteers', title: 'Medical Support Crew', caption: 'Certified first-aid volunteers on standby with cold towels and glucose', img: '/gallery/img-19.webp' },
-  { id: 20, category: 'volunteers', categoryLabel: 'Volunteers', title: 'Route Cheering Squad', caption: 'Lively student music and cheering teams keeping runner adrenaline high', img: '/gallery/img-20.webp' },
-  { id: 21, category: 'volunteers', categoryLabel: 'Volunteers', title: 'Bib & Timing Verification', caption: 'Desk volunteers ensuring electronic RFID bib verifications with precision', img: '/gallery/img-21.webp' },
-  { id: 22, category: 'volunteers', categoryLabel: 'Volunteers', title: 'Finish Chute Guidance', caption: 'Assisting tired finishers safely into the hydration and stretching zones', img: '/gallery/img-22.webp' },
-  { id: 23, category: 'volunteers', categoryLabel: 'Volunteers', title: 'Post-Race Breakfast Team', caption: 'Serving steaming hot breakfast hampers and fruit snacks to all runners', img: '/gallery/img-23.webp' },
-  { id: 24, category: 'volunteers', categoryLabel: 'Volunteers', title: 'The 100+ Volunteer Force', caption: 'The passionate student and faculty volunteer squad behind the event’s success', img: '/gallery/img-24.webp' },
+  // 3. Runners & Finishers (2 photos)
+  {
+    id: 13,
+    category: 'runners',
+    categoryLabel: 'Runners & Finishers',
+    title: 'Glory at the Finish Line',
+    caption: 'Lead runner triumphantly crossing the finish line arch to claim victory.',
+    img: '/xavathon/XNJ_9972.jpg'
+  },
+  {
+    id: 14,
+    category: 'runners',
+    categoryLabel: 'Runners & Finishers',
+    title: 'Pride & Patriotism on Course',
+    caption: 'Collegiate runners proudly carrying the national tricolor as they complete their distance.',
+    img: '/xavathon/XNJ_0370.jpg'
+  },
 
-  // 4. Xavathon 2026 — Behind the Scenes
-  { id: 25, category: 'bts', categoryLabel: 'Behind the Scenes', title: 'Midnight Course Marking', caption: 'Laying down neon distance milestones and directional barriers before dawn', img: '/gallery/img-25.webp' },
-  { id: 26, category: 'bts', categoryLabel: 'Behind the Scenes', title: 'RFID Timing Mat Setup', caption: 'Testing telemetry sensors and live server sync before runners arrive', img: '/gallery/img-26.webp' },
-  { id: 27, category: 'bts', categoryLabel: 'Behind the Scenes', title: 'Sound & Stage Production', caption: 'Setting up audio arrays, LED displays, and sustainable canvas banners', img: '/gallery/img-27.webp' },
-  { id: 28, category: 'bts', categoryLabel: 'Behind the Scenes', title: 'Pre-Race Warm-up Drills', caption: 'Professional fitness instructors leading 1,500 runners in sync', img: '/gallery/img-28.webp' },
-  { id: 29, category: 'bts', categoryLabel: 'Behind the Scenes', title: 'Police & Traffic Liaison', caption: 'Coordinating green corridor clearances with Kolkata Traffic Police', img: '/gallery/img-29.webp' },
-  { id: 30, category: 'bts', categoryLabel: 'Behind the Scenes', title: 'Baggage Sorting Hub', caption: 'Over 2,000 bags systematically catalogued for instant post-race retrieval', img: '/gallery/img-30.webp' },
-  { id: 31, category: 'bts', categoryLabel: 'Behind the Scenes', title: 'Race Control Command Desk', caption: 'Monitoring marshals, ambulances, and water levels in real time', img: '/gallery/img-01.webp' },
-  { id: 32, category: 'bts', categoryLabel: 'Behind the Scenes', title: 'Eco-Waste Segregation', caption: 'Volunteers sorting 100% of event refuse for recycling and composting', img: '/gallery/img-02.webp' },
+  // 4. Awards & Trophies (2 photos)
+  {
+    id: 15,
+    category: 'awards',
+    categoryLabel: 'Awards & Trophies',
+    title: 'Xavathon Championship Trophies',
+    caption: 'The gleaming gold and crystal podium trophies awaiting the fastest collegiate and open runners.',
+    img: '/xavathon/XNJ_0956.jpg'
+  },
+  {
+    id: 16,
+    category: 'awards',
+    categoryLabel: 'Awards & Trophies',
+    title: 'Men’s Open Podium Felicitations',
+    caption: 'Category winners receiving their trophies, checks, and citations on the grand stage.',
+    img: '/xavathon/ADK_5487.jpg'
+  },
 
-  // 5. Xavathon 2026 — Awards
-  { id: 33, category: 'awards', categoryLabel: 'Awards', title: '10K Men’s Gold Champion', caption: 'Father Principal presenting the championship cup and cash prize to the winner', img: '/gallery/img-03.webp' },
-  { id: 34, category: 'awards', categoryLabel: 'Awards', title: '10K Women’s Gold Champion', caption: 'Celebrating a record-shattering performance with the Nihil Ultra trophy', img: '/gallery/img-04.webp' },
-  { id: 35, category: 'awards', categoryLabel: 'Awards', title: '5K Collegiate Cup Winner', caption: 'Undergraduate student athlete receiving top honors on the main stage', img: '/gallery/img-05.webp' },
-  { id: 36, category: 'awards', categoryLabel: 'Awards', title: 'Alumni Pioneer Honor', caption: 'Distinguished alumnus recognized for active marathon mentorship', img: '/gallery/img-06.webp' },
-  { id: 37, category: 'awards', categoryLabel: 'Awards', title: 'Sustainability Trophy', caption: 'Department planting the maximum saplings awarded the Greener Footprints cup', img: '/gallery/img-07.webp' },
-  { id: 38, category: 'awards', categoryLabel: 'Awards', title: 'Official Finisher Medal', caption: 'A close-up look at the bespoke plantable seed medal awarded to finishers', img: '/gallery/img-08.webp' },
-  { id: 39, category: 'awards', categoryLabel: 'Awards', title: 'Team Delegation Shield', caption: 'Winning department team proudly lifting the rolling inter-stream shield', img: '/gallery/img-09.webp' },
-  { id: 40, category: 'awards', categoryLabel: 'Awards', title: 'Grand Confetti Finale', caption: 'Celebratory prize distribution ceremony concluding with the college anthem', img: '/gallery/img-10.webp' },
-
-  // 6. Xavathon 2026 — Campus
-  { id: 41, category: 'campus', categoryLabel: 'Campus', title: 'Historic SXC Quadrangle', caption: 'The century-old St. Xavier’s building overlooking the sunlit assembly ground', img: '/ground.jpeg' },
-  { id: 42, category: 'campus', categoryLabel: 'Campus', title: 'The Principal’s Hall', caption: 'Rev. Fr. Dominic Savio’s communique room and Jesuit administrative heritage wing', img: '/father.jpg' },
-  { id: 43, category: 'campus', categoryLabel: 'Campus', title: 'Mother Teresa Sarani Gate', caption: 'The storied main college entrance welcoming runners from across India', img: '/gallery/img-11.webp' },
-  { id: 44, category: 'campus', categoryLabel: 'Campus', title: 'Chapel Garden Walkway', caption: 'Lush greenery and serene historic pathways where athletes stretch at dawn', img: '/gallery/img-12.webp' },
-  { id: 45, category: 'campus', categoryLabel: 'Campus', title: 'Colonial Arches & Corridors', caption: 'Sunlight filtering through the heritage collegiate corridors during event day', img: '/gallery/img-13.webp' },
-  { id: 46, category: 'campus', categoryLabel: 'Campus', title: 'College Auditorium Expo', caption: 'The vibrant venue hosting the pre-race expo and runner bib distributions', img: '/gallery/img-14.webp' },
-  { id: 47, category: 'campus', categoryLabel: 'Campus', title: 'Campus Afforestation Belt', caption: 'Saplings planted during last year’s drive now flourishing on campus grounds', img: '/gallery/img-15.webp' },
-  { id: 48, category: 'campus', categoryLabel: 'Campus', title: 'Celebration Arena by Night', caption: 'Campus grounds illuminated for the post-race cultural performances', img: '/gallery/img-16.webp' },
-
-  // 7. Xavathon 2027 — Coming Soon
-  { id: 49, category: 'coming-soon', categoryLabel: 'Coming Soon', title: 'Xavathon 2027 Official Theme', caption: 'The official visual identity: Towards Greener Footprints 2nd Edition', img: '/website-cover.webp' },
-  { id: 50, category: 'coming-soon', categoryLabel: 'Coming Soon', title: 'Recycled Ocean Yarn Kits', caption: 'Sneak preview of the 2027 athlete jerseys made from 100% recycled polymers', img: '/gallery/homepage.jpeg' },
-  { id: 51, category: 'coming-soon', categoryLabel: 'Coming Soon', title: 'Extended Riverfront 10K', caption: 'The expanded route looping along Kolkata’s scenic heritage riverway', img: '/gallery/img-17.webp' },
-  { id: 52, category: 'coming-soon', categoryLabel: 'Coming Soon', title: '1 Runner = 1 Tree Campaign', caption: 'Every registration triggers a verified mangrove sapling plantation drive', img: '/gallery/img-18.webp' },
-  { id: 53, category: 'coming-soon', categoryLabel: 'Coming Soon', title: 'Smart RFID Live Tracking', caption: 'Instant SMS splits and live map tracking for family and spectators', img: '/gallery/img-19.webp' },
-  { id: 54, category: 'coming-soon', categoryLabel: 'Coming Soon', title: 'Plantable Seed Medals', caption: 'Handcrafted medals embedded with marigold and tulsi seeds ready to sprout', img: '/gallery/img-20.webp' },
-  { id: 55, category: 'coming-soon', categoryLabel: 'Coming Soon', title: 'Zero-Waste Campus Pledge', caption: 'Complete ban on single-use items throughout race week and campus festival', img: '/gallery/img-21.webp' },
-  { id: 56, category: 'coming-soon', categoryLabel: 'Coming Soon', title: 'January 24, 2027 Flag-Off', caption: 'Countdown is on. Mark your calendar and lace up for sustainable change', img: '/gallery/img-22.webp' },
+  // 5. Campus & BTS (6 photos)
+  {
+    id: 17,
+    category: 'campus',
+    categoryLabel: 'Campus & BTS',
+    title: 'Historic SXC Quadrangle at Dawn',
+    caption: 'The majestic St. Xavier’s College heritage building bathed in the first golden rays of morning light.',
+    img: '/xavathon/1000159199.jpg'
+  },
+  {
+    id: 18,
+    category: 'campus',
+    categoryLabel: 'Campus & BTS',
+    title: 'Campus Stage Before Twilight',
+    caption: 'Lighting rigs, LED screens, and acoustic setups undergoing final sound checks at 4:30 AM.',
+    img: '/xavathon/XNJ_9580.jpg'
+  },
+  {
+    id: 19,
+    category: 'campus',
+    categoryLabel: 'Campus & BTS',
+    title: 'High-Energy Warm-Up Aerobics',
+    caption: 'Professional fitness trainers leading runners through rhythmic warm-ups and dynamic routines.',
+    img: '/xavathon/XNJ_9626.jpg'
+  },
+  {
+    id: 20,
+    category: 'campus',
+    categoryLabel: 'Campus & BTS',
+    title: 'Quadrangle Dynamic Stretching Session',
+    caption: 'Hundreds of participants synchronously stretching across the quadrangle lawn before call-up.',
+    img: '/xavathon/XNJ_9704.jpg'
+  },
+  {
+    id: 21,
+    category: 'campus',
+    categoryLabel: 'Campus & BTS',
+    title: 'GoHybrid Fitness Tire Arena',
+    caption: 'Fitness enthusiasts testing functional strength at the partner interactive sledgehammer and tire zone.',
+    img: '/xavathon/ADK_5287.jpg'
+  },
+  {
+    id: 22,
+    category: 'campus',
+    categoryLabel: 'Campus & BTS',
+    title: 'Post-Race Pushup Challenge',
+    caption: 'High-spirit runners engaging in spirited fitness challenges on the college lawn after crossing the finish line.',
+    img: '/xavathon/XNJ_0962.jpg'
+  }
 ];
 ---
 <!DOCTYPE html>
@@ -80,117 +196,1497 @@ const galleryItems = [
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#064e3b" />
-  <meta name="description" content="Official Gallery & Visual Archive — XAVATHON 2026 & 2027. St. Xavier's College (Autonomous), Kolkata." />
-  <title>Gallery &amp; Visual Archive — XAVATHON 2026 &amp; 2027</title>
+  <meta name="description" content="XAVATHON 2027 - St. Xavier's College, Kolkata. 2nd Edition Marathon themed 'Towards Greener Footprints'. 3KM, 5KM, 10KM." />
+  <meta property="og:title" content="XAVATHON 2027 - St. Xavier's College, Kolkata" />
+  <meta property="og:description" content="2nd Edition Annual Marathon â€” Towards Greener Footprints. Join 3K, 5K & 10K races at SXC Kolkata." />
+  <meta property="og:type" content="website" />
+  <title>XAVATHON 2027 - St. Xavier's College, Kolkata</title>
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Newsreader:ital,opsz,wght@1,6..72,400;1,6..72,500;1,6..72,600&family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/style.css" />
   <style>
-    /* Standalone Showcase Specific Polish */
-    body {
-      background-color: #faf7f1;
+    /* Athlenic Enhancements for About Section */
+    .about-lead-container {
+      margin-bottom: 2.5rem;
     }
-    .showcase-header {
-      position: sticky;
+    .about-hero-card {
+      background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(246,249,247,0.95) 100%);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      border-radius: 16px;
+      padding: 2.5rem;
+      box-shadow: 0 10px 30px rgba(6, 78, 59, 0.06);
+      position: relative;
+      overflow: hidden;
+    }
+    .about-hero-card::before {
+      content: '';
+      position: absolute;
       top: 0;
-      z-index: 100;
-      background: rgba(7, 11, 18, 0.96);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(212, 163, 89, 0.3);
-      padding: 0.85rem 1.5rem;
+      left: 0;
+      width: 5px;
+      height: 100%;
+      background: linear-gradient(180deg, #10b981 0%, #d4a359 100%);
     }
-    .showcase-header-inner {
-      max-width: 1200px;
-      margin: 0 auto;
+    .athlenic-badge-row {
       display: flex;
+      flex-wrap: wrap;
       align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
     }
-    .showcase-brand {
-      display: flex;
-      align-items: center;
-      gap: 0.85rem;
-      text-decoration: none;
-    }
-    .showcase-badge {
-      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-      color: #ffffff;
-      font-family: var(--font-heading);
-      font-size: 0.72rem;
-      font-weight: 700;
-      padding: 0.25rem 0.7rem;
-      border-radius: 999px;
-      letter-spacing: 0.06em;
-    }
-    .showcase-nav-btns {
-      display: flex;
-      align-items: center;
-      gap: 0.85rem;
-    }
-    .btn-full-site {
+    .athlenic-badge {
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
-      color: #e2e8f0;
-      font-family: var(--font-heading);
-      font-size: 0.82rem;
+      background: #064e3b;
+      color: #ffffff;
+      font-size: 0.75rem;
       font-weight: 700;
-      text-decoration: none;
-      padding: 0.45rem 0.95rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.85rem;
       border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .athlenic-subbadge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: rgba(212, 163, 89, 0.15);
+      color: #996515;
+      border: 1px solid rgba(212, 163, 89, 0.35);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+    }
+    .about-headline {
+      font-family: var(--font-heading, 'Outfit', sans-serif);
+      font-size: clamp(2rem, 3.5vw, 2.7rem);
+      font-weight: 800;
+      color: var(--text-dark, #0f172a);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .about-headline em {
+      font-style: italic;
+      color: #059669;
+      font-family: var(--font-display, 'Newsreader', serif);
+    }
+    .about-intro-paragraphs {
+      color: #334155;
+      font-size: 1.05rem;
+      line-height: 1.75;
+      margin-bottom: 1.75rem;
+    }
+    .about-intro-paragraphs p {
+      margin-bottom: 0.85rem;
+    }
+    .athlenic-meta-chips {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0.85rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid rgba(16, 185, 129, 0.15);
+    }
+    .meta-chip-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      border-radius: 10px;
+      padding: 0.85rem 1rem;
       transition: all 0.2s ease;
     }
-    .btn-full-site:hover {
-      background: rgba(255, 255, 255, 0.1);
+    .meta-chip-item:hover {
+      border-color: #10b981;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.08);
+    }
+    .meta-chip-icon {
+      font-size: 1.35rem;
+      line-height: 1;
+      margin-top: 2px;
+    }
+    .meta-chip-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #64748b;
+      font-weight: 700;
+      display: block;
+      margin-bottom: 2px;
+    }
+    .meta-chip-val {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #0f172a;
+      display: block;
+    }
+
+    /* 2-Column Section for Why Xavathon & Green Initiatives */
+    .about-two-pillars-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 3.5rem;
+    }
+    @media (max-width: 900px) {
+      .about-two-pillars-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .pillar-card {
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 16px;
+      padding: 2.2rem;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+    .pillar-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.07);
+    }
+    .pillar-card.why-card {
+      border-top: 4px solid #0284c7;
+    }
+    .pillar-card.green-card {
+      border-top: 4px solid #10b981;
+      background: linear-gradient(180deg, #ffffff 0%, #f0fdf4 100%);
+    }
+    .pillar-header {
+      margin-bottom: 1.25rem;
+    }
+    .pillar-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.75rem;
+      border-radius: 999px;
+      margin-bottom: 0.75rem;
+    }
+    .why-tag {
+      background: rgba(2, 132, 199, 0.1);
+      color: #0284c7;
+    }
+    .green-tag {
+      background: rgba(16, 185, 129, 0.15);
+      color: #047857;
+    }
+    .pillar-title {
+      font-family: var(--font-heading, 'Outfit', sans-serif);
+      font-size: 1.65rem;
+      font-weight: 800;
+      color: var(--text-dark, #0f172a);
+      margin-bottom: 0.6rem;
+    }
+    .pillar-desc {
+      font-size: 0.95rem;
+      color: #475569;
+      line-height: 1.65;
+      margin-bottom: 1.5rem;
+    }
+    .pillar-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+    .pillar-list-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.85rem;
+      padding: 0.75rem 0.9rem;
+      background: #f8fafc;
+      border-radius: 10px;
+      border: 1px solid rgba(0, 0, 0, 0.04);
+      transition: all 0.2s ease;
+    }
+    .green-card .pillar-list-item {
+      background: rgba(255, 255, 255, 0.85);
+      border-color: rgba(16, 185, 129, 0.15);
+    }
+    .pillar-list-item:hover {
+      background: #ffffff;
+      border-color: rgba(0, 0, 0, 0.12);
+      transform: translateX(4px);
+    }
+    .pillar-item-icon {
+      font-size: 1.25rem;
+      line-height: 1;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+    .pillar-item-text strong {
+      display: block;
+      font-size: 0.92rem;
+      color: #0f172a;
+      margin-bottom: 0.15rem;
+    }
+    .pillar-item-text span {
+      font-size: 0.82rem;
+      color: #64748b;
+      line-height: 1.45;
+      display: block;
+    }
+
+    /* Updated Race Category Cards from Athlenic */
+    .athlenic-races-box {
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 16px;
+      padding: 2.5rem;
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.04);
+    }
+    .races-box-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .races-title-group h3 {
+      font-family: var(--font-heading, 'Outfit', sans-serif);
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #0f172a;
+      margin-bottom: 0.25rem;
+    }
+    .races-title-group p {
+      font-size: 0.95rem;
+      color: #64748b;
+      margin: 0;
+    }
+    .races-grid-three {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    @media (max-width: 900px) {
+      .races-grid-three {
+        grid-template-columns: 1fr;
+      }
+    }
+    .ath-race-card {
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: #ffffff;
+      position: relative;
+      transition: all 0.25s ease;
+    }
+    .ath-race-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+      border-color: #10b981;
+    }
+    .ath-race-card.popular {
+      border: 2px solid #10b981;
+      background: linear-gradient(180deg, #ffffff 0%, #f0fdf4 100%);
+    }
+    .popular-ribbon {
+      position: absolute;
+      top: -12px;
+      right: 18px;
+      background: #10b981;
+      color: #ffffff;
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      padding: 0.2rem 0.75rem;
+      border-radius: 999px;
+      text-transform: uppercase;
+      box-shadow: 0 2px 8px rgba(16, 185, 129, 0.4);
+    }
+    .ath-race-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    .ath-dist-pill {
+      font-family: var(--font-display, 'Newsreader', serif);
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: #064e3b;
+      background: rgba(16, 185, 129, 0.12);
+      padding: 0.25rem 0.85rem;
+      border-radius: 8px;
+    }
+    .ath-price {
+      font-family: var(--font-heading, 'Outfit', sans-serif);
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: #0f172a;
+    }
+    .ath-race-name {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: #0f172a;
+      margin-bottom: 0.35rem;
+    }
+    .ath-age-pill {
+      display: inline-block;
+      font-size: 0.72rem;
+      color: #64748b;
+      background: #f1f5f9;
+      padding: 0.15rem 0.55rem;
+      border-radius: 4px;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+    .ath-inclusions-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+    .ath-inclusions-list li {
+      font-size: 0.84rem;
+      color: #334155;
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+    .ath-inclusions-list li svg {
+      color: #10b981;
+      flex-shrink: 0;
+    }
+    .btn-ath-reg {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      width: 100%;
+      padding: 0.75rem 1rem;
+      font-weight: 700;
+      font-size: 0.9rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      background: #064e3b;
+      color: #ffffff;
+      border: none;
+    }
+    .btn-ath-reg:hover {
+      background: #047857;
+      transform: translateY(-1px);
+    }
+    .ath-race-card.popular .btn-ath-reg {
+      background: #10b981;
+    }
+    .ath-race-card.popular .btn-ath-reg:hover {
+      background: #059669;
+    }
+    .athlenic-verify-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.8rem;
+      color: #047857;
+      font-weight: 600;
+      background: rgba(16, 185, 129, 0.1);
+      padding: 0.35rem 0.75rem;
+      border-radius: 6px;
+    }
+
+    /* Charity & Financial Architecture Section Styles (Synchronized with Slate-Teal & Botanical Theme) */
+    .charity-section {
+      background:
+        radial-gradient(ellipse 70% 50% at 20% 25%, rgba(16, 185, 129, 0.15) 0%, transparent 65%),
+        radial-gradient(ellipse 60% 45% at 85% 75%, rgba(212, 163, 89, 0.10) 0%, transparent 65%),
+        linear-gradient(180deg, #102a3a 0%, #0d2828 20%, #092e24 50%, #0c2b22 80%, #102521 100%);
+      color: #ffffff;
+      border-top: 1px solid rgba(246, 245, 239, 0.10);
+      border-bottom: 1px solid rgba(24, 54, 74, 0.12);
+      position: relative;
+      overflow: hidden;
+      padding: 5rem 0;
+    }
+    .charity-section::before {
+      content: 'GREATER IMPACT';
+      position: absolute;
+      top: 6%;
+      left: 2%;
+      font-family: var(--font-display, sans-serif);
+      font-size: 13vw;
+      font-weight: 900;
+      color: rgba(246, 245, 239, 0.022);
+      letter-spacing: 0.08em;
+      pointer-events: none;
+      user-select: none;
+      line-height: 1;
+    }
+    .charity-header-wrap {
+      margin-bottom: 3.5rem;
+      position: relative;
+      z-index: 1;
+    }
+    .charity-lead {
+      color: #cbd5e1;
+      font-size: 1.1rem;
+      max-width: 750px;
+      line-height: 1.7;
+    }
+    .charity-two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: stretch;
+      margin-bottom: 3rem;
+      position: relative;
+      z-index: 1;
+    }
+    @media (max-width: 960px) {
+      .charity-two-col {
+        grid-template-columns: 1fr;
+      }
+    }
+    .charity-card {
+      background: linear-gradient(165deg, rgba(16, 44, 58, 0.72) 0%, rgba(10, 42, 34, 0.78) 100%);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(203, 189, 173, 0.22);
+      border-radius: 16px;
+      padding: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+      position: relative;
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .charity-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(16, 185, 129, 0.45);
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.45);
+    }
+    .charity-card::after {
+      content: '';
+      position: absolute;
+      inset: 7px;
+      border: 1px solid rgba(212, 163, 89, 0.12);
+      border-radius: 11px;
+      pointer-events: none;
+    }
+    .charity-model-card {
+      border-top: 3px solid #10b981;
+    }
+    .charity-impact-card {
+      border-top: 3px solid #d4a359;
+    }
+    .charity-coin-badge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 1.5rem auto 2rem;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #f0fdf4 0%, #a7f3d0 45%, #059669 85%, #064e3b 100%);
+      border: 3px solid #6ee7b7;
+      box-shadow: 0 0 25px rgba(16, 185, 129, 0.35), inset 0 0 15px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      color: #064e3b;
+      flex-direction: column;
+      font-family: var(--font-heading, sans-serif);
+      padding: 0.5rem;
+    }
+    .coin-sub {
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #064e3b;
+    }
+    .coin-amt {
+      font-size: 2rem;
+      font-weight: 900;
+      line-height: 1;
+      color: #064e3b;
+      margin: 2px 0;
+    }
+    .coin-foot {
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #047857;
+    }
+    .model-split-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin-bottom: 2rem;
+    }
+    @media (max-width: 540px) {
+      .model-split-row {
+        grid-template-columns: 1fr;
+      }
+    }
+    .split-box {
+      border-radius: 12px;
+      padding: 1.4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+    .split-env {
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+    }
+    .split-soc {
+      background: rgba(212, 163, 89, 0.10);
+      border: 1px solid rgba(212, 163, 89, 0.32);
+    }
+    .split-val {
+      font-family: var(--font-heading, sans-serif);
+      font-size: 2rem;
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: 0.35rem;
+    }
+    .split-env .split-val {
+      color: #34d399;
+    }
+    .split-soc .split-val {
+      color: #fbbf24;
+    }
+    .split-title {
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+    .split-desc {
+      font-size: 0.85rem;
+      color: #cbd5e1;
+      line-height: 1.45;
+      margin-bottom: 1rem;
+    }
+    .split-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .pill-env {
+      background: rgba(16, 185, 129, 0.2);
+      color: #6ee7b7;
+      border: 1px solid rgba(16, 185, 129, 0.4);
+    }
+    .pill-soc {
+      background: rgba(212, 163, 89, 0.18);
+      color: #fde68a;
+      border: 1px solid rgba(212, 163, 89, 0.4);
+    }
+    .model-equation-bar {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 10px;
+      padding: 0.85rem 1.25rem;
+      text-align: center;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #f1f5f9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .equation-accent {
+      color: #10b981;
+    }
+
+    /* Milestone Showcase in Right Col */
+    .milestone-banner {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.12) 0%, rgba(212, 163, 89, 0.12) 100%);
+      border: 1px solid rgba(203, 189, 173, 0.25);
+      border-radius: 14px;
+      padding: 1.5rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
+    .milestone-amt {
+      font-family: var(--font-heading, sans-serif);
+      font-size: clamp(2.2rem, 4vw, 3rem);
+      font-weight: 900;
+      color: #ffffff;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      text-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+    }
+    .milestone-sub {
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #cbd5e1;
+      margin-top: 0.25rem;
+      display: block;
+    }
+    .impact-boxes-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin-bottom: 2rem;
+    }
+    @media (max-width: 540px) {
+      .impact-boxes-row {
+        grid-template-columns: 1fr;
+      }
+    }
+    .impact-box {
+      border-radius: 12px;
+      padding: 1.4rem;
+      display: flex;
+      flex-direction: column;
+    }
+    .box-env {
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+    .box-soc {
+      background: rgba(212, 163, 89, 0.1);
+      border: 1px solid rgba(212, 163, 89, 0.3);
+    }
+    .impact-tag {
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.35rem;
+      display: block;
+    }
+    .impact-num {
+      font-family: var(--font-heading, sans-serif);
+      font-size: 1.7rem;
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 0.4rem;
+    }
+    .impact-sub {
+      font-size: 0.78rem;
+      color: #cbd5e1;
+      font-weight: 600;
+      margin-bottom: 0.85rem;
+      display: block;
+    }
+    .impact-pills-list {
+      font-size: 0.75rem;
+      color: #94a3b8;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      line-height: 1.6;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 0.65rem;
+      text-transform: uppercase;
+    }
+
+    /* Support & Register Banner directly after the two flashcards */
+    .charity-action-banner {
+      background: linear-gradient(135deg, rgba(16, 44, 56, 0.82) 0%, rgba(8, 52, 40, 0.85) 50%, rgba(16, 38, 48, 0.82) 100%);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      border-radius: 16px;
+      padding: 2rem 2.5rem;
+      margin-top: 2rem;
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.3);
+      position: relative;
+      z-index: 1;
+    }
+    .charity-action-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .charity-action-text {
+      flex: 1;
+      min-width: 280px;
+    }
+    .charity-action-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #34d399;
+      background: rgba(16, 185, 129, 0.18);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      padding: 0.25rem 0.65rem;
+      border-radius: 999px;
+      margin-bottom: 0.5rem;
+    }
+    .charity-action-text h3 {
+      font-family: var(--font-heading, sans-serif);
+      font-size: clamp(1.25rem, 2.5vw, 1.7rem);
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 0.35rem;
+      line-height: 1.3;
+    }
+    .charity-action-text p {
+      font-size: 0.92rem;
+      color: #cbd5e1;
+      margin: 0;
+    }
+    .charity-action-btns {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .btn-charity-support {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 1.02rem;
+      padding: 0.85rem 1.85rem;
+      border-radius: 999px;
+      text-decoration: none;
+      box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+      transition: all 0.25s ease;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .btn-charity-support:hover {
+      background: linear-gradient(135deg, #34d399 0%, #10b981 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(16, 185, 129, 0.5);
       color: #ffffff;
     }
-    .gallery-standalone-hero {
-      padding: 3.5rem 1rem 1rem;
+
+    /* Philosophy Banner at bottom */
+    .charity-footer-quote {
+      background: linear-gradient(135deg, rgba(16, 44, 56, 0.6) 0%, rgba(8, 52, 40, 0.6) 100%);
+      border: 1px solid rgba(203, 189, 173, 0.18);
+      border-radius: 14px;
+      padding: 1.75rem 2rem;
+      margin-top: 2.5rem;
       text-align: center;
-      background: radial-gradient(circle at 50% 20%, rgba(16, 185, 129, 0.08) 0%, transparent 70%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      position: relative;
+      z-index: 1;
     }
-    .showcase-subhead {
-      color: var(--muted);
+    .quote-lead {
+      font-family: var(--font-heading, sans-serif);
+      font-size: clamp(1.3rem, 2.8vw, 1.8rem);
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #ffffff;
+    }
+    .quote-lead span {
+      color: #10b981;
+    }
+    .quote-desc {
       font-size: 0.95rem;
-      max-width: 600px;
-      margin: 0.5rem auto 0;
+      color: #cbd5e1;
+      font-style: italic;
+      margin: 0;
     }
+
+
   </style>
 </head>
 <body>
 
-  <!-- Top Showcase Bar -->
-  <header class="showcase-header">
-    <div class="showcase-header-inner">
-      <a href="/" class="showcase-brand">
+  <!-- Top Sticky Navigation -->
+  <header class="site-header" id="header">
+    <div class="header-inner">
+      <a href="#top" class="brand" aria-label="XAVATHON 2027 Home">
         <picture>
           <source srcset="/sxc-logo.webp" type="image/webp" />
-          <img src="/sxc-logo.png" alt="St. Xavier's College Crest" width="42" height="42" style="border-radius:50%;" />
+          <img src="/sxc-logo.png" alt="St. Xavier's College Crest" class="brand-crest" width="46" height="46" />
         </picture>
         <div class="brand-text">
-          <span class="brand-college" style="font-size: 0.75rem; letter-spacing: 0.12em; color: #d4a359;">ST. XAVIER'S COLLEGE</span>
-          <span class="brand-name" style="font-size: 1.1rem; color: #ffffff;">XAVATHON <b>GALLERY SHOWCASE</b></span>
+          <span class="brand-college">ST. XAVIER'S COLLEGE</span>
+          <span class="brand-name">XAVATHON <b>2027</b></span>
         </div>
       </a>
 
-      <div class="showcase-nav-btns">
-        <span class="showcase-badge">MODULE 10 &bull; 56 PHOTOS</span>
-        <a href="/full-event" class="btn-full-site">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-          <span>Full Event Website</span>
-        </a>
-      </div>
+      <nav class="nav-links" id="nav-links">
+        <a href="#about" class="nav-item">About</a>
+        <a href="#races" class="nav-item">Races</a>
+        <a href="#message" class="nav-item">Father's Message</a>
+        <a href="#charity" class="nav-item">Charity &amp; Impact</a>
+        <a href="#gallery" class="nav-item">Gallery</a>
+        <a href="#faq" class="nav-item">FAQs</a>
+        <a href="#details" class="nav-item">Details</a>
+        <a href="#details" class="nav-btn">Register Now</a>
+      </nav>
+
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </header>
 
   <main>
+    <!-- Background SXC Campus Ground (Scroll-Synchronized with Dynamic Blur Texture) -->
+    <div class="bg-athletes-field-layer" id="bg-athletes-field-layer" aria-hidden="true">
+      <div class="bg-athletes-inner" id="bg-athletes-inner">
+        <img 
+          src="/website-cover.webp" 
+          alt="Xavathon 2027 Homepage Cover" 
+          class="bg-athletes-img" 
+          id="bg-athletes-img"
+          loading="eager"
+        />
+        <div class="bg-athletes-tint-overlay"></div>
+      </div>
+    </div>
+
+    <!-- HERO SECTION: Background Cover Image with Countdown and Details below COMING SOON -->
+    <section class="hero-section" id="top">
+      <div class="hero-container">
+        <!-- Spacer letting the cover image's Crest, Xavathon Logo, and "COMING SOON" show cleanly without obstruction -->
+        <div class="hero-cover-spacer" aria-hidden="true"></div>
+
+        <div class="hero-info hero-details-below">
+          <!-- Countdown Timer -->
+          <div class="countdown-box" id="countdown-box">
+            <span class="countdown-label">RACE COUNTDOWN</span>
+            <div class="countdown-digits">
+              <div class="cd-item"><span id="days">--</span><small>DAYS</small></div>
+              <div class="cd-sep">:</div>
+              <div class="cd-item"><span id="hours">--</span><small>HOURS</small></div>
+              <div class="cd-sep">:</div>
+              <div class="cd-item"><span id="minutes">--</span><small>MINS</small></div>
+              <div class="cd-sep">:</div>
+              <div class="cd-item"><span id="seconds">--</span><small>SECS</small></div>
+            </div>
+          </div>
+
+          <!-- Metric Badges -->
+          <div class="event-pills">
+            <span class="pill"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> 3K Fun &bull; 5K &bull; 10K Run</span>
+            <span class="pill"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> 3,000+ Participants</span>
+            <span class="pill"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Kolkata, India</span>
+            <span class="pill pill-green"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg> 2nd Edition (2027)</span>
+          </div>
+
+          <!-- Hero Action Buttons -->
+          <div class="hero-actions">
+            <a href="#details" class="btn btn-primary">
+              <span>Register for Race</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#about" class="btn btn-secondary">
+              <span>Explore Event</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 13l5 5 5-5M7 6l5 5 5-5"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 1: ABOUT XAVATHON (ENRICHED FROM ATHLENIC STAGING) -->
+    <section class="section about-section" id="about">
+      <div class="container">
+        <div class="section-tag">
+          <span class="tag-num">01</span>
+          <span class="tag-line"></span>
+          <span class="tag-text">ABOUT THE MARATHON</span>
+        </div>
+
+        <!-- 1. SHORT INTRODUCTION TO XAVATHON -->
+        <div class="about-lead-container">
+          <div class="about-hero-card">
+            <div class="athlenic-badge-row">
+              <span class="athlenic-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                RUN TOGETHER. GO FURTHER.
+              </span>
+              <span class="athlenic-subbadge">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                XAVATHON &bull; 2027
+              </span>
+              <span class="athlenic-verify-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                Official Event Details
+              </span>
+            </div>
+
+            <h2 class="about-headline">
+              XAVATHON 2027 &mdash; Where Fitness, Unity &amp; <em>Community Flourish.</em>
+            </h2>
+
+            <div class="about-intro-paragraphs">
+              <p>
+                Get ready for <strong>XAVATHON 2027</strong>, the next edition of the running celebration organized by <strong>St. Xavier’s College (Autonomous), Kolkata</strong>.
+              </p>
+              <p>
+                After the successful first edition, XAVATHON returns with the same spirit of fitness, unity, participation, and the Xaverian community &mdash; bringing runners together for an energetic and memorable experience.
+              </p>
+              <p>
+                Whether you are an experienced runner, a fitness enthusiast, a beginner, or simply looking for an enjoyable run with friends and family, <strong>XAVATHON has something for everyone</strong>.
+              </p>
+            </div>
+
+            <!-- Quick Event Highlights Strip from Athlenic -->
+            <div class="athlenic-meta-chips">
+              <div class="meta-chip-item">
+                <span class="meta-chip-icon">&bull;</span>
+                <div>
+                  <span class="meta-chip-label">Race Date</span>
+                  <span class="meta-chip-val">10th January 2027 (Sunday)</span>
+                </div>
+              </div>
+              <div class="meta-chip-item">
+                <span class="meta-chip-icon">&bull;</span>
+                <div>
+                  <span class="meta-chip-label">Official Venue</span>
+                  <span class="meta-chip-val">St. Xavier’s College, Kolkata</span>
+                </div>
+              </div>
+              <div class="meta-chip-item">
+                <span class="meta-chip-icon">&bull;</span>
+                <div>
+                  <span class="meta-chip-label">Reporting Time</span>
+                  <span class="meta-chip-val">05:00 HRS (Morning)</span>
+                </div>
+              </div>
+              <div class="meta-chip-item">
+                <span class="meta-chip-icon">&bull;</span>
+                <div>
+                  <span class="meta-chip-label">Age Eligibility</span>
+                  <span class="meta-chip-val">16 Years &amp; Above</span>
+                </div>
+              </div>
+              <div class="meta-chip-item">
+                <span class="meta-chip-icon">&bull;</span>
+                <div>
+                  <span class="meta-chip-label">Registration Deadline</span>
+                  <span class="meta-chip-val">Jan 04, 2027 (Or Sold Out)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. WHY XAVATHON? & 3. SUSTAINABILITY / GREEN INITIATIVE HIGHLIGHTS -->
+        <div class="about-two-pillars-grid">
+          <!-- Pillar 1: Why Xavathon? -->
+          <div class="pillar-card why-card">
+            <div class="pillar-header">
+              <span class="pillar-tag why-tag">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+                PARTICIPATION &amp; EXPERIENCE
+              </span>
+              <h3 class="pillar-title">Why Xavathon?</h3>
+              <p class="pillar-desc">
+                <strong>XAVATHON is more than just a race.</strong> It is an opportunity to come together, stay active, and celebrate the spirit of community. Every participant receives comprehensive race-day support and perks:
+              </p>
+            </div>
+
+            <ul class="pillar-list">
+              <li class="pillar-list-item">
+                <span class="pillar-item-icon">&bull;</span>
+                <div class="pillar-item-text">
+                  <strong>Official XAVATHON Event T-Shirt</strong>
+                  <span>High-performance, breathable dry-fit running jersey included for all registered runners.</span>
+                </div>
+              </li>
+              <li class="pillar-list-item">
+                <span class="pillar-item-icon">&bull;</span>
+                <div class="pillar-item-text">
+                  <strong>Commemorative Finisher Medal</strong>
+                  <span>Awarded proudly at the finish chute to celebrate every runner crossing the timing mat.</span>
+                </div>
+              </li>
+              <li class="pillar-list-item">
+                <span class="pillar-item-icon">&bull;</span>
+                <div class="pillar-item-text">
+                  <strong>Electronic Timing Chip &amp; Certificate</strong>
+                  <span>Precision RFID chip bib timing and verified digital split e-certificates for 5K &amp; 10K categories.</span>
+                </div>
+              </li>
+              <li class="pillar-list-item">
+                <span class="pillar-item-icon">&bull;</span>
+                <div class="pillar-item-text">
+                  <strong>On-Route Hydration &amp; Wholesome Refreshments</strong>
+                  <span>Dedicated hydration points offering electrolyte water, glucose, followed by a hot post-race breakfast.</span>
+                </div>
+              </li>
+              <li class="pillar-list-item">
+                <span class="pillar-item-icon">&bull;</span>
+                <div class="pillar-item-text">
+                  <strong>Medical &amp; Emergency Support</strong>
+                  <span>On-standby certified paramedic squads, physiotherapy recovery zones, and BLS emergency ambulances.</span>
+                </div>
+              </li>
+              <li class="pillar-list-item">
+                <span class="pillar-item-icon">&bull;</span>
+                <div class="pillar-item-text">
+                  <strong>High-Energy Xaverian Community Spirit</strong>
+                  <span>Live campus cheering squads, DJ beats, and camaraderie uniting 3,000+ athletes nationwide.</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Pillar 2: Sustainability / Green Initiative Highlights -->
+          <div class="pillar-card green-card">
+            <div class="pillar-header">
+              <span class="pillar-tag green-tag">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                THEME: TOWARDS GREENER FOOTPRINTS
+              </span>
+              <h3 class="pillar-title">Sustainability Highlights</h3>
+              <p class="pillar-desc">
+                <em>&ldquo;Run Together. Go Further.&rdquo;</em> Join us for the second edition of XAVATHON and be part of a growing movement that brings together fitness, community, and the enduring Xaverian spirit:
+              </p>
+            </div>
+
+            <ul class="pillar-list">
+              <li class="pillar-list-item">
+                <span class="pillar-item-icon">&bull;</span>
+                <div class="pillar-item-text">
+                  <strong>1 Runner = 1 Tree Sapling Campaign</strong>
+                  <span>Every confirmed registration triggers the planting and nurturing of a native tree sapling during college afforestation drives.</span>
+                </div>
+              </li>
+              <li class="pillar-list-item">
+                <span class="pillar-item-icon">&bull;</span>
+                <div class="pillar-item-text">
+                  <strong>Zero-Single-Use Plastic Campus Policy</strong>
+                  <span>Strict prohibition of disposable plastics. 100% biodegradable compostable bagasse cups are deployed across all hydration stops.</span>
+                </div>
+              </li>
+              <li class="pillar-list-item">
+                <span class="pillar-item-icon">&bull;</span>
+                <div class="pillar-item-text">
+                  <strong>Plantable Seed Finisher Medals</strong>
+                  <span>Commemorative medals embedded with marigold and tulsi seeds ready to sprout and bloom into living green plants post-race.</span>
+                </div>
+              </li>
+              <li class="pillar-list-item">
+                <span class="pillar-item-icon">&bull;</span>
+                <div class="pillar-item-text">
+                  <strong>Eco-Conscious Athlete Kits &amp; Mineral Paper</strong>
+                  <span>Running apparel manufactured using recycled yarn, and race bibs printed on mineral-based biodegradable paper.</span>
+                </div>
+              </li>
+              <li class="pillar-list-item">
+                <span class="pillar-item-icon">&bull;</span>
+                <div class="pillar-item-text">
+                  <strong>100% Waste Segregation &amp; Composting Hubs</strong>
+                  <span>Trained student environmental marshals sort all event refuse on-site to ensure zero waste reaches landfills.</span>
+                </div>
+              </li>
+              <li class="pillar-list-item">
+                <span class="pillar-item-icon">&bull;</span>
+                <div class="pillar-item-text">
+                  <strong>Come Run. Come Participate. Make a Difference.</strong>
+                  <span>Inspiring real ecological stewardship in Kolkata, setting the collegiate benchmark for sustainable athletics.</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 4. OFFICIAL RACE CATEGORIES & INCLUSIONS (DIRECT FROM ATHLENIC) -->
+        <div class="athlenic-races-box" id="races">
+          <div class="races-box-header">
+            <div class="races-title-group">
+              <span class="athlenic-badge" style="margin-bottom: 0.5rem;">REGISTRATION TIERS</span>
+              <h3>Official Race Categories &amp; Inclusions</h3>
+              <p>Participation is open to individuals aged <strong>16 years and above</strong> across all three categories.</p>
+            </div>
+            <div>
+              <a href="#details" class="btn btn-secondary btn-sm" style="display:inline-flex; align-items:center; gap:0.4rem;">
+                <span>View Event Schedule</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="races-grid-three">
+            <!-- Category 1: 3K Fun Run -->
+            <article class="ath-race-card">
+              <div>
+                <div class="ath-race-top">
+                  <span class="ath-dist-pill">03 KM</span>
+                  <span class="ath-price">&#8377; 500</span>
+                </div>
+                <h4 class="ath-race-name">3K Fun Run</h4>
+                <span class="ath-age-pill">Age: 16 years &amp; above &bull; Untimed</span>
+                <ul class="ath-inclusions-list">
+                  <li>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Official Event T-Shirt</span>
+                  </li>
+                  <li>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Finisher Medal</span>
+                  </li>
+                  <li>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Post-Race Refreshments</span>
+                  </li>
+                  <li>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Hydration &amp; Medical Support</span>
+                  </li>
+                </ul>
+              </div>
+              <a href="#details" class="btn-ath-reg">
+                <span>Register for 3K</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </article>
+
+            <!-- Category 2: 5K Timed Run (Popular) -->
+            <article class="ath-race-card popular">
+              <span class="popular-ribbon">CHALLENGE RUN</span>
+              <div>
+                <div class="ath-race-top">
+                  <span class="ath-dist-pill">05 KM</span>
+                  <span class="ath-price">&#8377; 600</span>
+                </div>
+                <h4 class="ath-race-name">5K Timed Run</h4>
+                <span class="ath-age-pill">Age: 16 years &amp; above &bull; Chip Timed</span>
+                <ul class="ath-inclusions-list">
+                  <li>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Official Event T-Shirt</span>
+                  </li>
+                  <li>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Finisher Medal</span>
+                  </li>
+                  <li>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Post-Race Refreshments</span>
+                  </li>
+                  <li>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Electronic Timing Chip</span>
+                  </li>
+                  <li>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Official Timing Certificate</span>
+                  </li>
+                </ul>
+              </div>
+              <a href="#details" class="btn-ath-reg">
+                <span>Register for 5K</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </article>
+
+            <!-- Category 3: 10K Timed Run -->
+            <article class="ath-race-card">
+              <div>
+                <div class="ath-race-top">
+                  <span class="ath-dist-pill">10 KM</span>
+                  <span class="ath-price">&#8377; 800</span>
+                </div>
+                <h4 class="ath-race-name">10K Timed Run</h4>
+                <span class="ath-age-pill">Age: 16 years &amp; above &bull; Championship</span>
+                <ul class="ath-inclusions-list">
+                  <li>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Official Event T-Shirt</span>
+                  </li>
+                  <li>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Finisher Medal</span>
+                  </li>
+                  <li>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Post-Race Refreshments</span>
+                  </li>
+                  <li>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Electronic Timing Chip</span>
+                  </li>
+                  <li>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Timing Certificate &amp; Podium Prizes</span>
+                  </li>
+                </ul>
+              </div>
+              <a href="#details" class="btn-ath-reg">
+                <span>Register for 10K</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </article>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 2: FATHER'S WRITEUP & LETTER IMAGE -->
+    <section class="section message-section" id="message">
+      <div class="container">
+        <div class="section-tag light-tag">
+          <span class="tag-num">02</span>
+          <span class="tag-line"></span>
+          <span class="tag-text">INSTITUTIONAL MESSAGE</span>
+        </div>
+
+        <div class="message-layout">
+          <!-- Father's Writeup Letter / Image -->
+          <div class="letter-visual-wrap">
+            <div class="letter-card">
+              <div class="letter-badge">MESSAGE FROM THE PRINCIPAL</div>
+              <img 
+                src="/father.jpg" 
+                alt="Rev. Dr. Dominic Savio, SJ - Principal, St. Xavier's College (Autonomous), Kolkata" 
+                class="letter-image" 
+                width="480" 
+                height="480" 
+                loading="eager" 
+                style="object-fit: cover; object-position: top center;"
+              />
+              <div class="letter-caption">
+                <span class="caption-name">Rev. Dr. Dominic Savio, SJ</span>
+                <span class="caption-sub">Principal &bull; St. Xavier’s College (Autonomous), Kolkata</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Letter Text Content -->
+          <div class="message-text-wrap">
+            <div class="quote-symbol" aria-hidden="true">&ldquo;</div>
+            <span class="eyebrow-accent">INSTITUTIONAL COMMUNIQUE &bull; 2ND EDITION</span>
+            <h2 class="father-heading">Towards Greener Footprints &mdash; <em>A Collective Movement</em></h2>
+            <p class="father-title">Rev. Dr. Dominic Savio, SJ</p>
+            <p class="father-designation">Principal, St. Xavier's College (Autonomous), Kolkata</p>
+
+            <blockquote class="father-letter-body" style="display: flex; flex-direction: column; gap: 0.9rem; margin-top: 1.25rem;">
+              <p>
+                It is with great pride and enthusiasm that I welcome you to the <strong>2nd Edition of Xavathon &mdash; Towards Greener Footprints</strong>, organised by <strong>St. Xavier’s College (Autonomous), Kolkata</strong>. What began in January 2026 has now blossomed into a collective movement, uniting the spirit of sport and well-being with our shared environmental responsibility.
+              </p>
+              <p>
+                With <strong>3 km, 5 km, and 10 km races</strong>, we look forward to welcoming nearly <strong>3,000 runners</strong> &mdash; students, alumni, faculty, families, and citizens across Kolkata &mdash; united by a powerful idea: <em>every step can make a difference</em>. A footprint is not merely a mark left behind; it is a reminder of the impact we create through our choices and the greener world we wish to leave behind for generations to come.
+              </p>
+              <p>
+                At St. Xavier’s College, education transcends the classroom. Xavathon embodies our commitment to nurture conscious, compassionate, and responsible citizens by transforming a sporting endeavour into a celebration of community, sustainability, and collective action.
+              </p>
+              <p style="font-size: 1.05rem; font-weight: 700; color: #10b981; line-height: 1.6; border-left: 3px solid #10b981; padding-left: 0.85rem; margin: 0.4rem 0;">
+                Let us run for health. Let us run for community. Let us run for our planet. Let us together, move Towards Greener Footprints.
+              </p>
+              <p>
+                May Xavathon 2027 inspire us to run farther, live healthier, think greener, and leave behind footprints future generations will be proud to follow. Best wishes for a successful and memorable race!
+              </p>
+            </blockquote>
+
+            <div class="signature-block" style="margin-top: 1.5rem;">
+              <div class="sig-line"></div>
+              <div class="sig-details">
+                <strong style="font-size: 1.05rem; color: #ffffff;">Rev. Dr. Dominic Savio, SJ</strong>
+                <span style="color: #94a3b8;">Principal, St. Xavier’s College (Autonomous), Kolkata</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: FINANCIAL ARCHITECTURE & CHARITY MODEL (ANALYZED FROM CHARITY.JPEG) -->
+    <section class="section charity-section" id="charity">
+      <div class="container">
+        <div class="section-tag light-tag">
+          <span class="tag-num">03</span>
+          <span class="tag-line"></span>
+          <span class="tag-text">FINANCIAL ARCHITECTURE &amp; CHARITY MODEL</span>
+        </div>
+
+        <div class="charity-header-wrap">
+          <div class="athlenic-badge-row">
+            <span class="athlenic-badge" style="background: #10b981; color: #064e3b; font-weight: 800;">
+              TOWARDS A GREATER FOOTPRINT
+            </span>
+            <span class="athlenic-subbadge" style="background: rgba(255, 255, 255, 0.1); color: #f8fafc; border-color: rgba(255, 255, 255, 0.2);">
+              TRANSPARENT IMPACT ARCHITECTURE
+            </span>
+          </div>
+          <h2 class="display-h2" style="color: #ffffff; margin-top: 0.5rem; font-size: clamp(2rem, 3.5vw, 2.8rem);">
+            The Fundraiser Model &mdash; <em>Every Contribution Leaves Two Footprints</em>
+          </h2>
+          <p class="charity-lead">
+            At Xavathon 2027, sportsmanship meets conscious philanthropy. We propose a transparent, high-integrity financial model where every contribution is systematically split between ecological restoration and grassroots community empowerment.
+          </p>
+        </div>
+
+        <!-- 2-Column Impact Grid -->
+        <div class="charity-two-col">
+          <!-- Col 1: The Fundraiser Model -->
+          <div class="charity-card charity-model-card">
+            <div class="pillar-header">
+              <span class="pillar-tag green-tag">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                THE FUNDRAISER MODEL
+              </span>
+              <h3 class="pillar-title" style="color: #ffffff;">The &#8377;100 Impact Model</h3>
+              <p class="pillar-desc" style="color: #cbd5e1;">
+                We propose a simple, transparent &#8377;100 impact formula. Every single contribution directly creates measurable environmental and social value:
+              </p>
+            </div>
+
+            <!-- Central Coin Graphic -->
+            <div class="charity-coin-badge">
+              <span class="coin-sub">EVERY</span>
+              <span class="coin-amt">&#8377;100</span>
+              <span class="coin-foot">CONTRIBUTED</span>
+            </div>
+
+            <!-- Split Boxes -->
+            <div class="model-split-row">
+              <div class="split-box split-env">
+                <div>
+                  <div class="split-val">&#8377;20</div>
+                  <div class="split-title" style="color: #34d399;">ENVIRONMENTAL IMPACT</div>
+                  <p class="split-desc">Used directly to purchase, plant, and nurture a native tree sapling.</p>
+                </div>
+                <span class="split-pill pill-env">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                  PLANT A SAPLING
+                </span>
+              </div>
+
+              <div class="split-box split-soc">
+                <div>
+                  <div class="split-val">&#8377;80</div>
+                  <div class="split-title" style="color: #fbbf24;">SOCIAL IMPACT</div>
+                  <p class="split-desc">Donated to a selected verified NGO partner or grassroots social cause.</p>
+                </div>
+                <span class="split-pill pill-soc">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                  SUPPORT A CAUSE
+                </span>
+              </div>
+            </div>
+
+            <!-- Formula Summary Bar -->
+            <div class="model-equation-bar">
+              <span>ONE &#8377;100 CONTRIBUTION = TWO IMPACTS</span>
+              <span style="opacity: 0.4;">|</span>
+              <span class="equation-accent">&#127793; Greener Future</span>
+              <span style="opacity: 0.4;">+</span>
+              <span style="color: #fbbf24;">&#128150; Stronger Communities</span>
+            </div>
+          </div>
+
+          <!-- Col 2: The Impact & Financial Architecture -->
+          <div class="charity-card charity-impact-card">
+            <div class="pillar-header">
+              <span class="pillar-tag" style="background: rgba(212, 163, 89, 0.2); color: #fde68a; border: 1px solid rgba(212, 163, 89, 0.35);">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                THE IMPACT MILESTONE
+              </span>
+              <h3 class="pillar-title" style="color: #ffffff;">Financial Architecture</h3>
+              <p class="pillar-desc" style="color: #cbd5e1;">
+                The initiative can be tracked and documented throughout the campaign, including the number of saplings planted and the total amount contributed towards the selected NGO:
+              </p>
+            </div>
+
+            <!-- Milestone Banner -->
+            <div class="milestone-banner">
+              <div class="milestone-amt">&#8377;1,00,000 RAISED</div>
+              <span class="milestone-sub">FOR A BIGGER, GREENER TOMORROW</span>
+            </div>
+
+            <!-- Impact Allocation Boxes -->
+            <div class="impact-boxes-row">
+              <div class="impact-box box-env">
+                <span class="impact-tag" style="color: #34d399;">ENVIRONMENTAL IMPACT</span>
+                <div class="impact-num" style="color: #34d399;">&#8377;20,000</div>
+                <span class="impact-sub">TOWARDS NATIVE SAPLINGS</span>
+                <div class="impact-pills-list">
+                  &bull; More Trees<br />
+                  &bull; Cleaner Air<br />
+                  &bull; A Greener Tomorrow
+                </div>
+              </div>
+
+              <div class="impact-box box-soc">
+                <span class="impact-tag" style="color: #fbbf24;">SOCIAL IMPACT</span>
+                <div class="impact-num" style="color: #fbbf24;">&#8377;80,000</div>
+                <span class="impact-sub">TOWARDS SELECTED NGO / CAUSE</span>
+                <div class="impact-pills-list">
+                  &bull; Stronger Communities<br />
+                  &bull; Brighter Opportunities<br />
+                  &bull; Inclusive Tomorrow
+                </div>
+              </div>
+            </div>
+
+            <div style="background: rgba(255, 255, 255, 0.05); border-radius: 10px; padding: 0.85rem 1.25rem; font-size: 0.82rem; color: #94a3b8; display: flex; align-items: center; gap: 0.6rem;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <span>100% Verified, Audited, and Documented by St. Xavier's College (Autonomous), Kolkata.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Support & Register Call-to-Action directly after the two flashcards -->
+        <div class="charity-action-banner">
+          <div class="charity-action-inner">
+            <div class="charity-action-text">
+              <span class="charity-action-tag">JOIN THE CAUSE &bull; XAVATHON 2027</span>
+              <h3>Run for Health. Run for the Planet. Run for Community.</h3>
+              <p>Be part of Xavathon 2027 &mdash; every step and contribution leaves two enduring footprints for people and the environment.</p>
+            </div>
+            <div class="charity-action-btns">
+              <a href="#races" class="btn-charity-support">
+                <span>Support &amp; Register</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Closing Philosophy Banner -->
+        <div class="charity-footer-quote">
+          <div class="quote-lead">
+            THE RACE ENDS. <span>THE IMPACT CONTINUES.</span>
+          </div>
+          <p class="quote-desc">
+            &ldquo;Every contribution leaves two footprints &mdash; one for the planet, one for people.&rdquo;
+          </p>
+        </div>
+      </div>
+    </section>
+
     <!-- SECTION 10: GALLERY — 56 CURATED MOMENTS ACROSS 7 STREAMS & INSTAGRAM INTEGRATION -->
-    <section class="section gallery-section" id="gallery" style="padding-top: 2.5rem;">
+    <section class="section gallery-section" id="gallery" style="padding-top: 3.5rem;">
       <div class="container">
         
         <div class="gallery-header-wrap">
@@ -203,13 +1699,13 @@ const galleryItems = [
           <div class="gallery-title-group">
             <span class="gallery-pill-badge">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-              56 CURATED MOMENTS &bull; 7 VISUAL STREAMS
+              22 CURATED MOMENTS &bull; 5 VISUAL STREAMS
             </span>
-            <h1 class="display-h2" style="font-size: clamp(2.2rem, 4.5vw, 3.4rem); margin: 0.4rem 0;">
-              Xavathon <em>Visual Archive</em>
-            </h1>
+            <h2 class="display-h2" style="font-size: clamp(2.2rem, 4.5vw, 3.4rem); margin: 0.4rem 0;">
+              The Moments That <em>Moved Us</em>
+            </h2>
             <p class="lead-p" style="max-width: 720px;">
-              An exclusive visual showcase of Xavathon 2026 and preview of Xavathon 2027. Featuring circular athletic frames, glowing category rings, real-time filtering, and fullscreen high-resolution inspection.
+              Every race has a story. Every photograph captures a moment of human resilience, collegiate pride, and environmental commitment across St. Xavier's College.
             </p>
           </div>
         </div>
@@ -219,35 +1715,27 @@ const galleryItems = [
           <div class="gallery-tabs-scroll" role="tablist" aria-label="Filter gallery by category">
             <button class="gallery-tab active" data-filter="all" role="tab" aria-selected="true">
               <span class="tab-label">All Moments</span>
-              <span class="tab-count">56</span>
+              <span class="tab-count">22</span>
+            </button>
+            <button class="gallery-tab" data-filter="community" role="tab" aria-selected="false">
+              <span class="tab-label">Teachers & Community</span>
+              <span class="tab-count">8</span>
             </button>
             <button class="gallery-tab" data-filter="race-day" role="tab" aria-selected="false">
-              <span class="tab-label">Xavathon 2026 — Race Day</span>
-              <span class="tab-count">8</span>
+              <span class="tab-label">Race Day & Flag-Off</span>
+              <span class="tab-count">4</span>
             </button>
             <button class="gallery-tab" data-filter="runners" role="tab" aria-selected="false">
-              <span class="tab-label">Xavathon 2026 — Runners</span>
-              <span class="tab-count">8</span>
-            </button>
-            <button class="gallery-tab" data-filter="volunteers" role="tab" aria-selected="false">
-              <span class="tab-label">Xavathon 2026 — Volunteers</span>
-              <span class="tab-count">8</span>
-            </button>
-            <button class="gallery-tab" data-filter="bts" role="tab" aria-selected="false">
-              <span class="tab-label">Xavathon 2026 — Behind the Scenes</span>
-              <span class="tab-count">8</span>
+              <span class="tab-label">Runners & Finishers</span>
+              <span class="tab-count">2</span>
             </button>
             <button class="gallery-tab" data-filter="awards" role="tab" aria-selected="false">
-              <span class="tab-label">Xavathon 2026 — Awards</span>
-              <span class="tab-count">8</span>
+              <span class="tab-label">Awards & Trophies</span>
+              <span class="tab-count">2</span>
             </button>
             <button class="gallery-tab" data-filter="campus" role="tab" aria-selected="false">
-              <span class="tab-label">Xavathon 2026 — Campus</span>
-              <span class="tab-count">8</span>
-            </button>
-            <button class="gallery-tab" data-filter="coming-soon" role="tab" aria-selected="false">
-              <span class="tab-label">Xavathon 2027 — Coming Soon</span>
-              <span class="tab-count">8</span>
+              <span class="tab-label">Campus & BTS</span>
+              <span class="tab-count">6</span>
             </button>
           </div>
         </div>
@@ -307,11 +1795,11 @@ const galleryItems = [
             <span class="expand-btn-icon">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 12 16 16 12"></polyline><line x1="12" y1="8" x2="12" y2="16"></line></svg>
             </span>
-            <span class="expand-btn-label" id="expand-btn-label">Expand All 56 Moments</span>
-            <span class="expand-btn-badge" id="expand-btn-badge">Showing 8 of 56</span>
+            <span class="expand-btn-label" id="expand-btn-label">Expand All 22 Moments</span>
+            <span class="expand-btn-badge" id="expand-btn-badge">Showing 8 of 22</span>
           </button>
           <p class="gallery-expand-hint" id="gallery-expand-hint">
-            Click above to expand all 56 moments or click any category tab above to explore that specific stream.
+            Click above to expand all 22 moments or click any category tab above to explore that specific stream.
           </p>
         </div>
 
@@ -385,25 +1873,494 @@ const galleryItems = [
 
       </div>
     </section>
+
+    <!-- SECTION 4: FAQS & RACE GUIDE -->
+    <section class="section faq-section" id="faq">
+      <div class="container">
+        <div class="section-tag">
+          <span class="tag-num">04</span>
+          <span class="tag-line"></span>
+          <span class="tag-text">FAQS &amp; RACE GUIDE</span>
+        </div>
+
+        <div class="about-faq-wrap no-top-border">
+          <div class="faq-header-card">
+            <div class="faq-title-group">
+              <span class="faq-pill-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                HAVE QUESTIONS?
+              </span>
+              <h3 class="faq-section-title">Frequently Asked <em>Questions</em></h3>
+              <p class="faq-section-subtitle">
+                Everything you need to know about Xavathon 2027: race categories, eco-initiatives, official runner kits, route guidelines, and college facilities.
+              </p>
+            </div>
+            <div class="faq-quick-stats">
+              <div class="f-stat"><span class="fs-num">3</span><span class="fs-label">Races</span></div>
+              <div class="f-stat"><span class="fs-num">0%</span><span class="fs-label">Single-Use Plastic</span></div>
+              <div class="f-stat"><span class="fs-num">100%</span><span class="fs-label">Chip Timed (5K/10K)</span></div>
+            </div>
+          </div>
+
+          <div class="faq-accordion" id="faq-accordion">
+            <!-- Question 1 -->
+            <div class="faq-item active">
+              <button class="faq-question" aria-expanded="true" aria-controls="faq-ans-1" id="faq-q-1">
+                <span class="faq-q-icon">01</span>
+                <span class="faq-q-text">Who is eligible to participate in Xavathon 2027?</span>
+                <span class="faq-chevron" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </span>
+              </button>
+              <div class="faq-answer" id="faq-ans-1" role="region" aria-labelledby="faq-q-1">
+                <div class="faq-answer-inner">
+                  <p>
+                    <strong>Xavathon is open to everyone!</strong> Students, faculty members, administrative staff, and alumni of <strong>St. Xavier’s College (Autonomous), Kolkata</strong> run alongside collegiate athletes from across West Bengal, running clubs, and passionate amateur or competitive marathoners nationwide.
+                  </p>
+                  <p>
+                    There are separate distance categories designed for all fitness levels, ranging from beginner leisure walkers to seasoned distance racers.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false" aria-controls="faq-ans-2" id="faq-q-2">
+                <span class="faq-q-icon">02</span>
+                <span class="faq-q-text">What are the race categories, routes, and timing cut-offs?</span>
+                <span class="faq-chevron" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </span>
+              </button>
+              <div class="faq-answer" id="faq-ans-2" role="region" aria-labelledby="faq-q-2">
+                <div class="faq-answer-inner">
+                  <ul class="faq-list-bullets">
+                    <li><strong>3 KM Fun Run:</strong> Open to all age groups. An untimed spirited run and walk with <em>no cut-off time</em>. Ideal for first-timers, friends, and families.</li>
+                    <li><strong>5 KM Challenge Run:</strong> Professionally timed via electronic RFID bib. Cut-off time: <strong>60 minutes</strong>. Perfect for personal fitness milestones.</li>
+                    <li><strong>10 KM Championship Run:</strong> Competitive championship course timed via RFID splits. Cut-off time: <strong>100 minutes</strong>. Podium cash rewards and trophies for top finishers in Men’s and Women’s divisions.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false" aria-controls="faq-ans-3" id="faq-q-3">
+                <span class="faq-q-icon">03</span>
+                <span class="faq-q-text">What does the theme "Towards Greener Footprints" mean?</span>
+                <span class="faq-chevron" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </span>
+              </button>
+              <div class="faq-answer" id="faq-ans-3" role="region" aria-labelledby="faq-q-3">
+                <div class="faq-answer-inner">
+                  <p>
+                    Xavathon’s core philosophy is sustainability. We implement a strict <strong>Zero-Plastic Policy</strong> across all water stations and college grounds using compostable bagasse cups.
+                  </p>
+                  <p>
+                    For every single runner registered, St. Xavier's College commits to planting a native tree sapling during monsoon afforestation drives. Additionally, our finisher medals are cast from plantable seed paper or recycled metals, and event bibs are printed on mineral paper.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false" aria-controls="faq-ans-4" id="faq-q-4">
+                <span class="faq-q-icon">04</span>
+                <span class="faq-q-text">What is included in the Official Runner's Race Kit?</span>
+                <span class="faq-chevron" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </span>
+              </button>
+              <div class="faq-answer" id="faq-ans-4" role="region" aria-labelledby="faq-q-4">
+                <div class="faq-answer-inner">
+                  <p>Every confirmed participant receives a complete athlete kit containing:</p>
+                  <ul class="faq-list-bullets">
+                    <li>Official Xavathon breathable dry-fit athletic running jersey</li>
+                    <li>Electronic RFID timing bib (for 5K & 10K categories)</li>
+                    <li>Eco-friendly organic cotton tote sling bag</li>
+                    <li>Finisher Medal awarded immediately upon crossing the finish line</li>
+                    <li>Post-race hot wholesome breakfast & electrolyte refreshments</li>
+                    <li>Official digital Finisher E-Certificate with verified split times</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Question 5 -->
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false" aria-controls="faq-ans-5" id="faq-q-5">
+                <span class="faq-q-icon">05</span>
+                <span class="faq-q-text">Where is the Race Village, Start Line, and Assembly Point?</span>
+                <span class="faq-chevron" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </span>
+              </button>
+              <div class="faq-answer" id="faq-ans-5" role="region" aria-labelledby="faq-q-5">
+                <div class="faq-answer-inner">
+                  <p>
+                    The Race Village, flag-off line, and celebratory finish line are located at the historic <strong>St. Xavier’s College Main Campus, 30 Mother Teresa Sarani (Park Street), Kolkata</strong>.
+                  </p>
+                  <p>
+                    Gates open at <strong>4:45 AM</strong>. Official flag-off sequence:
+                    <br />&bull; <strong>10 KM Championship:</strong> 5:45 AM
+                    <br />&bull; <strong>5 KM Challenge:</strong> 6:00 AM
+                    <br />&bull; <strong>3 KM Fun Run:</strong> 6:15 AM
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Question 6 -->
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false" aria-controls="faq-ans-6" id="faq-q-6">
+                <span class="faq-q-icon">06</span>
+                <span class="faq-q-text">Will there be medical support, baggage storage, and hydration stations?</span>
+                <span class="faq-chevron" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </span>
+              </button>
+              <div class="faq-answer" id="faq-ans-2" role="region" aria-labelledby="faq-q-6">
+                <div class="faq-answer-inner">
+                  <p>
+                    <strong>Yes, full safety infrastructure is deployed.</strong> Hydration stations are positioned at every 1.5 km offering clean water, electrolytes, and glucose.
+                  </p>
+                  <p>
+                    Mobile medical squads with certified paramedics and on-standby BLS ambulances will cover the route. Secure, supervised baggage counters will be available inside campus, as well as a physiotherapy stretch-and-recovery lounge at the finish line.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Question 7 -->
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false" aria-controls="faq-ans-7" id="faq-q-7">
+                <span class="faq-q-icon">07</span>
+                <span class="faq-q-text">How and when can I collect my Bib and Race Kit?</span>
+                <span class="faq-chevron" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </span>
+              </button>
+              <div class="faq-answer" id="faq-ans-7" role="region" aria-labelledby="faq-q-7">
+                <div class="faq-answer-inner">
+                  <p>
+                    Bib collection takes place at the <strong>Xavathon Expo</strong> hosted in the College Auditorium 2 days prior to race day from <strong>10:00 AM to 6:00 PM</strong>.
+                  </p>
+                  <p>
+                    Please carry your registration confirmation email (digital or printed) and a valid photo ID. Outstation participants unable to collect beforehand can avail early-morning bib distribution starting at 4:45 AM on race day.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Contact / Helpdesk banner -->
+          <div class="faq-help-banner">
+            <div class="faq-help-left">
+              <span class="faq-help-badge">STILL HAVE QUESTIONS?</span>
+              <h4>Reach Out to the Xavathon Student Helpdesk</h4>
+              <p>Our volunteer team is available to assist with bulk registrations, corporate entries, and queries.</p>
+            </div>
+            <div class="faq-help-right">
+              <a href="mailto:marathon@sxccal.edu" class="btn-faq-contact">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                <span>marathon@sxccal.edu</span>
+              </a>
+              <a href="#details" class="btn-faq-reg">Register Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: BASIC DETAILS & INSTITUTION CARD -->
+    <section class="section details-section" id="details">
+      <div class="container">
+        <div class="section-tag light-tag">
+          <span class="tag-num">05</span>
+          <span class="tag-line"></span>
+          <span class="tag-text">EVENT PARTICULARS</span>
+        </div>
+
+        <div class="details-card-grid">
+          <div class="detail-box">
+            <div class="detail-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <h4>Starting &amp; Finish Venue</h4>
+            <p><strong>St. Xavier's College Campus</strong><br />30, Mother Teresa Sarani (Park Street)<br />Kolkata 700 016, West Bengal, India</p>
+          </div>
+
+          <div class="detail-box">
+            <div class="detail-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+            <h4>Race Schedule &amp; Flag-Off</h4>
+            <p><strong>Early Morning Flag-Off</strong><br />Assembly &amp; Warm-up: 05:30 AM<br />10K: 06:00 AM | 5K: 06:15 AM | 3K: 06:30 AM</p>
+          </div>
+
+          <div class="detail-box">
+            <div class="detail-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div>
+            <h4>Participant Runner Kit</h4>
+            <p>Official Dry-fit Jersey, Timing RFID Bib, Finisher Medal, Hydration Stations, Medical Enroute, Hot Breakfast &amp; E-Certificate.</p>
+          </div>
+
+          <div class="detail-box register-highlight">
+            <div class="detail-icon highlight-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+            <h4>Official Registration</h4>
+            <p>Registration opens for 3K Fun Run (&#8377;500), 5K Timed Run (&#8377;600), and 10K Timed Run (&#8377;800) until Jan 04, 2027.</p>
+            <a href="#races" class="btn btn-primary btn-sm">Explore Race Tiers &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <footer style="background: #0b1d2a; color: #f5f0e8; padding: 2.5rem 1.5rem; text-align: center; border-top: 1px solid rgba(212, 163, 89, 0.25);">
-    <div class="container" style="max-width: 900px; margin: 0 auto;">
-      <p style="margin: 0; font-family: var(--font-heading); font-size: 1rem; color: #d4a359; letter-spacing: 0.05em;">
-        ST. XAVIER'S COLLEGE (AUTONOMOUS), KOLKATA
-      </p>
-      <p style="margin: 0.4rem 0 1rem; font-size: 0.85rem; color: #94a3b8;">
-        Xavathon Visual Archive Module &bull; Dedicated Showcase Presentation
-      </p>
-      <a href="/full-event" style="display: inline-flex; align-items: center; gap: 0.4rem; color: #10b981; text-decoration: none; font-weight: 600; font-size: 0.85rem;">
-        &larr; View Full Event Website
-      </a>
+  <!-- FOOTER: Basic details about Xavathon at all -->
+  <footer class="site-footer">
+    <div class="footer-running-track" aria-hidden="true">
+      <div class="footer-track-line"></div>
+      <div class="footer-track-line"></div>
+      <div class="footer-track-line"></div>
+    </div>
+
+    <div class="container footer-container">
+      <div class="footer-top-row">
+        <div class="footer-branding">
+          <div class="footer-logos">
+            <picture>
+              <source srcset="/sxc-logo.webp" type="image/webp" />
+              <img src="/sxc-logo.png" alt="St. Xavier's College Crest" class="footer-sxc-logo" width="55" height="55" loading="lazy" />
+            </picture>
+            <div class="footer-title">
+              <span class="footer-title-sub">ST. XAVIER'S COLLEGE, KOLKATA</span>
+              <h3>XAVATHON <b>2027</b></h3>
+            </div>
+          </div>
+          <p class="footer-about-text">
+            St. Xavier's College Kolkata's premier annual marathon advocating for active health and environmental sustainability under the banner <em>&ldquo;Towards Greener Footprints&rdquo;</em>.
+          </p>
+          <div class="footer-motto">
+            <span>COLLEGE MOTTO:</span> <strong>NIHIL ULTRA (NOTHING BEYOND)</strong>
+          </div>
+        </div>
+
+        <div class="footer-nav-col">
+          <h5>Quick Links</h5>
+          <ul>
+            <li><a href="#about">About Xavathon</a></li>
+            <li><a href="#races">Race Categories (3K/5K/10K)</a></li>
+            <li><a href="#message">Father's Message</a></li>
+            <li><a href="#charity">Charity &amp; Impact</a></li>
+            <li><a href="#gallery">10. Gallery (22 Moments)</a></li>
+            <li><a href="#faq">FAQs &amp; Guidelines</a></li>
+            <li><a href="#details">Venue &amp; Timings</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-nav-col">
+          <h5>Event Particulars</h5>
+          <ul>
+            <li><strong>Theme:</strong> Towards Greener Footprints</li>
+            <li><strong>Distances:</strong> 3 KM &bull; 5 KM &bull; 10 KM</li>
+            <li><strong>Participants:</strong> 3,000+ Runners</li>
+            <li><strong>Edition:</strong> 2nd Edition (2027)</li>
+            <li><strong>Organized By:</strong> SXC Kolkata</li>
+          </ul>
+        </div>
+
+        <div class="footer-nav-col">
+          <h5>Contact &amp; Campus</h5>
+          <address class="footer-address">
+            <strong>St. Xavier's College (Autonomous)</strong><br />
+            30, Mother Teresa Sarani (Park Street)<br />
+            Kolkata 700 016, West Bengal, India<br />
+            <a href="mailto:xavathon@sxccal.edu">xavathon@sxccal.edu</a><br />
+            <a href="tel:+913322551111">+91 33 2255 1111</a>
+          </address>
+          <div class="social-pills">
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">Instagram</a>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">Facebook</a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom-row">
+        <p>&copy; 2027 XAVATHON &bull; St. Xavier's College (Autonomous), Kolkata. All Rights Reserved.</p>
+        <p class="footer-sub-note">Towards Greener Footprints &bull; 2nd Edition</p>
+        <a href="#top" class="back-to-top" aria-label="Scroll back to top">Back to top &uarr;</a>
+      </div>
     </div>
   </footer>
 
-  <!-- Vanilla JS: Tabs, Expand/Collapse, Lightbox -->
+  <!-- Ultra-Lightweight Vanilla JS: Navigation, Tabs, Countdown, Lightbox (No Framework Overhead) -->
   <script is:inline>
-    // Gallery Category Filter Tabs & Expand/Collapse State
+    // 1. Mobile Menu Toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener('click', () => {
+        const isOpen = navLinks.classList.toggle('open');
+        menuToggle.classList.toggle('active', isOpen);
+        menuToggle.setAttribute('aria-expanded', isOpen);
+      });
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('open');
+          menuToggle.classList.remove('active');
+          menuToggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+
+    // 2. Header Scroll Shadow
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      if (header) {
+        header.classList.toggle('scrolled', window.scrollY > 40);
+      }
+    }, { passive: true });
+
+    // 3. Countdown Timer (Target: Jan 10, 2027 05:00:00 - Stg Athlenic Verified)
+    const targetDate = new Date('2027-01-10T05:00:00');
+    function updateCountdown() {
+      const now = new Date();
+      const diff = targetDate - now;
+      if (diff <= 0) return;
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const secs = Math.floor((diff % (1000 * 60)) / 1000);
+      const dEl = document.getElementById('days');
+      const hEl = document.getElementById('hours');
+      const mEl = document.getElementById('minutes');
+      const sEl = document.getElementById('seconds');
+      if (dEl) dEl.textContent = String(days).padStart(2, '0');
+      if (hEl) hEl.textContent = String(hours).padStart(2, '0');
+      if (mEl) mEl.textContent = String(mins).padStart(2, '0');
+      if (sEl) sEl.textContent = String(secs).padStart(2, '0');
+    }
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    // 4. Smooth Scroll Navigation with Precise Header Offset
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener('click', function (e) {
+        const targetId = this.getAttribute('href');
+        if (!targetId || targetId === '#') return;
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          e.preventDefault();
+          const headerHeight = 72;
+          const elementPos = targetElement.getBoundingClientRect().top + window.pageYOffset;
+          window.scrollTo({
+            top: Math.max(0, elementPos - headerHeight),
+            behavior: 'smooth'
+          });
+          // Update URL hash without jumping
+          history.pushState(null, '', targetId);
+        }
+      });
+    });
+
+    // 7. Subtle Reveal-on-Scroll Observer
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+      document.querySelectorAll('.stat-card, .race-card, .gallery-card, .detail-box, .letter-card, .about-grid, .message-layout, .charity-card, .charity-action-banner').forEach(el => {
+        el.classList.add('scroll-reveal');
+        observer.observe(el);
+      });
+    }
+
+    // 8. FAQ Accordion Interactive Expansion
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+      const questionBtn = item.querySelector('.faq-question');
+      const answer = item.querySelector('.faq-answer');
+      if (!questionBtn || !answer) return;
+
+      // Set initial state
+      if (item.classList.contains('active')) {
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+      }
+
+      questionBtn.addEventListener('click', () => {
+        const isOpen = item.classList.contains('active');
+
+        // Close other accordion items for clean single-view experience
+        faqItems.forEach(otherItem => {
+          if (otherItem !== item && otherItem.classList.contains('active')) {
+            otherItem.classList.remove('active');
+            const otherBtn = otherItem.querySelector('.faq-question');
+            const otherAns = otherItem.querySelector('.faq-answer');
+            if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
+            if (otherAns) otherAns.style.maxHeight = null;
+          }
+        });
+
+        if (isOpen) {
+          item.classList.remove('active');
+          questionBtn.setAttribute('aria-expanded', 'false');
+          answer.style.maxHeight = null;
+        } else {
+          item.classList.add('active');
+          questionBtn.setAttribute('aria-expanded', 'true');
+          answer.style.maxHeight = answer.scrollHeight + 20 + 'px';
+        }
+      });
+    });
+
+    // 9. Running Athletes Ground Photo — Scroll-Synchronized Parallax & Dynamic Blur Texture
+    const bgAthletesInner = document.getElementById('bg-athletes-inner');
+    const bgAthletesImg = document.getElementById('bg-athletes-img');
+
+    let lastScrollY = window.pageYOffset || 0;
+    let ticking = false;
+
+    function updateBgAthletesOnScroll() {
+      const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+      const maxScroll = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
+      const progress = Math.min(Math.max(scrollY / maxScroll, 0), 1);
+
+      // Scroll velocity for dynamic motion-blur texture response
+      const velocity = Math.min(Math.abs(scrollY - lastScrollY), 50);
+      lastScrollY = scrollY;
+
+      if (bgAthletesInner) {
+        // Parallax travel as user scrolls: image shifts vertically and subtly zooms/strides
+        const yOffset = -progress * 18; // -18% vertical shift
+        const xOffset = (progress * 6) - 3; // subtle horizontal running trajectory
+        const scale = 1.05 + (progress * 0.08); // dynamic athletic depth perspective
+        bgAthletesInner.style.transform = `translate3d(${xOffset}%, ${yOffset}%, 0) scale(${scale})`;
+      }
+
+      if (bgAthletesImg) {
+        // Dynamic motion blur texture: starts at 5px soft blur, increases subtly during scrolling
+        const dynamicBlur = Math.min(5 + velocity * 0.15, 10);
+        bgAthletesImg.style.filter = `blur(${dynamicBlur}px) saturate(1.1) contrast(1.04)`;
+      }
+
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateBgAthletesOnScroll);
+        ticking = true;
+      }
+    }, { passive: true });
+
+    // Initial run
+    updateBgAthletesOnScroll();
+
+    // 10. Gallery Category Filter Tabs, Expand/Collapse, and Lightbox Modal
     const filterTabs = document.querySelectorAll('.gallery-tab');
     const galleryCards = Array.from(document.querySelectorAll('.gallery-card'));
     const expandBtn = document.getElementById('gallery-expand-btn');
@@ -448,23 +2405,23 @@ const galleryItems = [
         if (currentCategory === 'all') {
           if (isGalleryExpanded) {
             expandLabel.textContent = 'Collapse Gallery';
-            expandBadge.textContent = 'Showing All 56';
+            expandBadge.textContent = 'Showing All 22';
             expandBtn.classList.add('is-expanded');
             expandBtn.setAttribute('aria-expanded', 'true');
-            if (expandHint) expandHint.textContent = 'Currently displaying all 56 moments. Click above to collapse back to 8 highlights.';
+            if (expandHint) expandHint.textContent = 'Currently displaying all 22 moments. Click above to collapse back to 8 highlights.';
           } else {
-            expandLabel.textContent = 'Expand All 56 Moments';
-            expandBadge.textContent = 'Showing 8 of 56';
+            expandLabel.textContent = 'Expand All 22 Moments';
+            expandBadge.textContent = 'Showing 8 of 22';
             expandBtn.classList.remove('is-expanded');
             expandBtn.setAttribute('aria-expanded', 'false');
-            if (expandHint) expandHint.textContent = 'Click above to expand all 56 moments or click any category tab above to explore that specific stream.';
+            if (expandHint) expandHint.textContent = 'Click above to expand all 22 moments or click any category tab above to explore that specific stream.';
           }
         } else {
           expandLabel.textContent = 'Return to All Moments';
-          expandBadge.textContent = `Showing 8 Moments`;
+          expandBadge.textContent = `Showing ${visibleCount} Moments`;
           expandBtn.classList.remove('is-expanded');
           expandBtn.setAttribute('aria-expanded', 'false');
-          if (expandHint) expandHint.textContent = 'Viewing 8 filtered moments. Click above to return to the full visual archive.';
+          if (expandHint) expandHint.textContent = `Viewing ${visibleCount} filtered moments. Click above to return to all 22 moments.`;
         }
       }
     }
@@ -497,7 +2454,8 @@ const galleryItems = [
           isGalleryExpanded = !isGalleryExpanded;
           applyGalleryVisibility();
           if (!isGalleryExpanded) {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            const gal = document.getElementById('gallery');
+            if (gal) gal.scrollIntoView({ behavior: 'smooth' });
           }
         }
       });

@@ -4,5 +4,5 @@ import { defineConfig } from 'astro/config';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://RoyAtul031.github.io',
-  base: '/college-web',
+  base: process.env.NODE_ENV === 'production' ? '/college-web' : '/',
 });
